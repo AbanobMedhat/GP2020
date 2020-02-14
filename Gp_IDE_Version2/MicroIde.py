@@ -1,4 +1,4 @@
-#############      author => Ahmed Ashraf        ############
+#############      author => Avengers        ############
 #############      this project is made for my graduation project and it intends to make a fully functioned IDE from scratch    ########
 #############      I've borrowed a function (serial_ports()) from a guy in stack overflow whome I can't remember his name, so I gave hime the copyrights of this function, thank you  ########
 
