@@ -20,7 +20,7 @@ base = None
 if sys.platform == "win32":
     base = "Win32GUI"
     
-exe = Executable(script='guifinal.py',
+exe = Executable(script='MicroIde.py',
                  base=base,
                  icon='soka.ico'
                 )
