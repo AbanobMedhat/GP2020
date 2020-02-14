@@ -286,25 +286,28 @@ class UI(QMainWindow):
         Run.addAction(RunAction)
 
         # Making and adding File Features
+        # New_Action = QAction("New",self)
+        # New_Action.setShortcut("Ctrl+N")
+        # New_Action.triggered.connect(self.new)
+        Open_Action = QAction("Open", self)
+        Open_Action.setShortcut("Ctrl+O")
+        Open_Action.triggered.connect(self.open)
         Save_Action = QAction("Save", self)
         Save_Action.triggered.connect(self.save)
         Save_Action.setShortcut("Ctrl+S")
         Close_Action = QAction("Close", self)
         Close_Action.setShortcut("Alt+c")
         Close_Action.triggered.connect(self.close)
-        Open_Action = QAction("Open", self)
-        Open_Action.setShortcut("Ctrl+O")
-        Open_Action.triggered.connect(self.open)
-        New_Action = QAction("New",self)
-        New_Action.setShortcut("Ctrl+N")
-        New_Action.triggered.connect(self.new)
+        
+        
 
 
-
+        # filemenu.addAction(New_Action)
+        filemenu.addAction(Open_Action)
         filemenu.addAction(Save_Action)
         filemenu.addAction(Close_Action)
-        filemenu.addAction(Open_Action)
-        filemenu.addAction(New_Action)
+        
+        
 
 
         # Seting the window Geometry
@@ -354,8 +357,8 @@ class UI(QMainWindow):
 
 
     # I made this function for Future edit in which I will allow the user to add new tabs and make a new files
-    def new(self):
-        print(1)
+    # def new(self):
+    #     print(1)
 
 
 
