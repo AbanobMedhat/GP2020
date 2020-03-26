@@ -1,0 +1,44 @@
+5a 000b 00 01 01 0100020003000400 f13b
+5a 0026 00 01 01 010102020200fe030200f40402000a051200010fe155e0617c7ada2e45af31eeed8d1c 5804
+
+5a 0039 00 01 13 01 20 4fee8b6d8366b1d51cd7616009ce0252101cbcd96722bdd209dd9bfed107d45b 02 12 0001ab820ac4fd6bce9fcadff11ebd73a50f c11c
+
+HawuWi
+5a 0025 00 01 13 01 20 2a959a840470e661cb308fbc025ff436a99b2ab66f520a0d3f3a4cc12b28cbcd
+794c
+
+Xiaome
+5a 0027 00 01 0f 01 00 03 06 5a474e6d4d7a 04 01 02 05 00 07 11 46463a46463a46463a46463a46463a4343 09 00
+458f
+
+Hawawi
+5a 0016 00 01 0f 01 01 01 02 01 01 04 01 02 05 02 00f4 09 04 000002e8 50df
+
+Bluetooth works like server-client. where the client is called as “central” which are your mobile phones/laptop and server is called as “peripheral” which are your end devices like wearable, beacon and sensor networks.
+
+
+Next question will be are there any security mechanism if you want to access these data??
+
+Yes. Bluetooth do offer an option to secure your communication. It is a three step process.
+
+1. Connecting — The central device just connects to the device and can access all the data in the GATT.
+
+2. Pairing — The central device needs to pair using any I/O so any new device that tries to connect to it needs physical access. This is where all the data is being encrypted with AES when transmitted into the thin air which also transmits the key in it.
+
+3. Bonding — This allows the device to connect to the already paired device using the pre-exchanged key which happened during pairing.
+
+The problem with pairing is that for these devices like smart bulb or smart beacon, it is becomes hard to keep a keypad or display to pair to it so the device just works on connection without any pairing. it becomes easier for anyone to connect to it and gain access to the GATT.
+
+
+
+
+
+
+
+References :
+1- https://medium.com/@arunmag/how-i-reverse-engineered-and-exploited-a-smart-massager-ee7c9f21bf33
+
+2- https://medium.com/@arunmag/my-journey-towards-reverse-engineering-a-smart-band-bluetooth-le-re-d1dea00e4de2
+
+3- https://payatu.com/reversing-exploiting-ble-4-0-communication
+4- https://blog.attify.com/hacking-bluetooth-low-energy/
