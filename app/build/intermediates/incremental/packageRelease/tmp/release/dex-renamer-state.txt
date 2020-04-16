@@ -1,0 +1,4 @@
+#Thu Apr 16 01:23:32 EET 2020
+base.0=D\:\\Android_App\\Health\\app\\build\\intermediates\\transforms\\dexMerger\\release\\0
+renamed.0=classes.dex
+path.0=classes.dex
