@@ -1,4 +1,0 @@
-#Thu Apr 16 01:07:44 EET 2020
-base.0=D\:\\Android_App\\Health\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
-renamed.0=classes.dex
-path.0=classes.dex
