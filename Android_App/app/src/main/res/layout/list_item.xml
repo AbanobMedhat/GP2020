@@ -1,20 +1,29 @@
-<?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:id="@+id/layout"
     android:layout_height="wrap_content"
     android:background="?android:attr/selectableItemBackground"
     tools:background="@drawable/background"
     android:padding="16dp">
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_person"
+        android:paddingLeft="5dp"/>
+
     <TextView
+        android:paddingLeft="30dp"
         android:id="@+id/patient_age"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical|start"
+        android:background="?android:attr/selectableItemBackground"
         android:fontFamily="monospace"
-        android:textSize="20sp"
-        android:textColor="#000"/>
+        android:text="hebab"
+        android:textColor="#000"
+        android:textSize="20sp" />
 
     <!--COMPLETED (1) Add a TextView with id "@+id/tv_view_holder_instance-->
     <!--COMPLETED (2) Set the style to @style/TextAppearance.AppCompat.Title-->
@@ -23,12 +32,6 @@
     <!--COMPLETED (5) Align the TextView in the center vertically-->
     <!--COMPLETED (6) Set the font family to monospace-->
     <!--COMPLETED (7) Set the text color to "#000"-->
-    <TextView
-        android:id="@+id/patient_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical|end"
-        android:fontFamily="monospace"
 
-        />
+
 </FrameLayout>

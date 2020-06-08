@@ -1,62 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".MainActivity"
+    android:id="@+id/mlayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/doctor">
-<android.support.constraint.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:background="@drawable/background2"
+    tools:context=".MainActivity"
+    tools:layout_editor_absoluteX="1dp">
 
     <Button
         android:id="@+id/patient_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="4dp"
-        android:layout_marginTop="132dp"
+        android:background="@drawable/borders"
+        android:layout_width="140dp"
+        android:layout_height="94dp"
+        android:layout_marginTop="148dp"
         android:text="Patient"
+        android:textSize="20sp"
+
         app:layout_constraintEnd_toStartOf="@+id/guideline"
-        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintHorizontal_bias="0.246"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Button
         android:id="@+id/doctor_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="132dp"
+        android:layout_width="140dp"
+        android:background="@drawable/borders"
+        android:layout_height="94dp"
+        android:layout_marginTop="104dp"
         android:text="Doctor"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.116"
+        app:layout_constraintHorizontal_bias="0.662"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.107" />
 
     <Button
         android:id="@+id/button"
-        android:layout_width="106dp"
-        android:layout_height="63dp"
-        android:layout_marginBottom="268dp"
-        android:layout_marginStart="56dp"
+        android:layout_width="130dp"
+        android:layout_height="77dp"
+        android:layout_marginTop="308dp"
+        android:background="@drawable/borders"
         android:elevation="7dp"
         android:stateListAnimator="@xml/animate_scale"
         android:text="send"
-        android:textColor="@color/colorAccent"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/editText"
-        app:layout_constraintVertical_bias="0.721" />
 
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:ems="10"
-        android:inputType="textEmailAddress"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="275dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="44dp"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
@@ -64,87 +68,79 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="174dp"
-        android:layout_marginStart="24dp"
         android:text="Select your identity"
-        android:textColor="@android:color/holo_blue_dark"
-        android:textSize="27sp"
+        android:textColor="@color/colorAccent"
+        android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.344" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="254dp"
-        android:layout_height="66dp"
-        android:layout_marginTop="204dp"
-        android:text="Enter your doctor email : "
-        android:textColor="@color/colorAccent"
-        android:textSize="27sp"
-        app:layout_constraintBottom_toTopOf="@+id/editText"
-        app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.048" />
 
     <TextView
         android:id="@+id/request"
-        android:layout_width="213dp"
-        android:layout_height="89dp"
-        android:layout_marginBottom="96dp"
+        android:layout_width="392dp"
+        android:layout_height="70dp"
         android:text="Your request's been sent"
         android:textColor="@color/colorAccent"
-        android:textSize="27sp"
-        android:visibility="invisible"
+        android:textSize="30sp"
+android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.24"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button"
-        app:layout_constraintVertical_bias="0.314" />
+        app:layout_constraintVertical_bias="0.342" />
 
-    <android.support.constraint.Group
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="374dp"
+        android:layout_height="68dp"
+        android:layout_marginTop="20dp"
+        android:text="Select your doctor : "
+        android:textColor="@color/colorAccent"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView" />
+
+    <androidx.constraintlayout.widget.Group
         android:id="@+id/group"
-        android:layout_width="241dp"
-        android:layout_height="409dp"
-        android:elevation="7dp"
-
-        app:constraint_referenced_ids="textView,patient_button,doctor_button"
-        tools:layout_editor_absoluteX="3dp"
-        tools:layout_editor_absoluteY="102dp">
-
-
-    </android.support.constraint.Group>
-
-    <android.support.constraint.Group
-        android:id="@+id/group2"
-        android:layout_width="223dp"
-        android:layout_height="0dp"
-        android:visibility="gone"
-        app:constraint_referenced_ids="editText,textView2,button"
-        tools:layout_editor_absoluteX="3dp"
-        tools:layout_editor_absoluteY="102dp">
-
-
-    </android.support.constraint.Group>
-
-    <android.support.constraint.Guideline
-        android:id="@+id/guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="126dp"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="130dp"
-        app:layout_constraintStart_toStartOf="parent" />
 
-    <android.support.constraint.Guideline
+        app:constraint_referenced_ids="textView,patient_button,doctor_button" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group2"
+        android:visibility="gone"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="spinner,textView2,button" />
+
+    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="48dp"
+        android:layout_marginEnd="93dp"
+        android:layout_marginRight="93dp"
+        android:layout_marginTop="48dp"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="20dp" />
+        app:layout_constraintBottom_toTopOf="@+id/editText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_begin="48dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="205dp" />
 
 
-
-</android.support.constraint.ConstraintLayout>
-    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

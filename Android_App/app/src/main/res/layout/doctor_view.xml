@@ -1,14 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_numbers"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="vertical"
 
-        />
-</FrameLayout>
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="102dp" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:minHeight="50dp"
+        android:minWidth="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/rv_numbers"
+        app:layout_constraintTop_toTopOf="@+id/rv_numbers" />
+
+    <ImageView
+        android:layout_width="255dp"
+        android:layout_height="234dp"
+        android:id="@+id/empty"
+        android:layout_above="@+id/progressBar"
+        android:background="@drawable/empty"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/progressBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:visibility="gone"
+
+        android:layout_width="370dp"
+        android:layout_height="65dp"
+        android:text="No patient found for you"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="@+id/rv_numbers"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.829"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/progressBar"
+        app:layout_constraintVertical_bias="0.069" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
