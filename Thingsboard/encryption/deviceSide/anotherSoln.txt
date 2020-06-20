@@ -1,1 +1,3 @@
 https://thingsboard.io/docs/user-guide/access-token/
+X.509 Certificate Based Authentication
+https://thingsboard.io/docs/user-guide/certificates/
