@@ -1,0 +1,113 @@
+{
+  "ruleChain": {
+    "additionalInfo": {
+      "description": ""
+    },
+    "name": "Sensors Emulation",
+    "firstRuleNodeId": null,
+    "root": false,
+    "debugMode": false,
+    "configuration": null
+  },
+  "metadata": {
+    "firstNodeIndex": null,
+    "nodes": [
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 58,
+          "layoutY": 258
+        },
+        "type": "org.thingsboard.rule.engine.debug.TbMsgGeneratorNode",
+        "name": "Heart Rate Generator",
+        "debugMode": true,
+        "configuration": {
+          "msgCount": 0,
+          "periodInSeconds": 10,
+          "jsScript": "var msg = {\r\n    Heart_Rate: +(Math.random() * 50 + 60).toFixed(0)\r\n};\r\nvar metadata = {};\r\nvar msgType = \"POST_TELEMETRY_REQUEST\";\r\n\r\nreturn {\r\n    msg: msg,\r\n    metadata: metadata,\r\n    msgType: msgType\r\n};",
+          "originatorId": "a093ba00-a589-11ea-a06d-a3a129a7759a",
+          "originatorType": "DEVICE"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 60,
+          "layoutY": 348
+        },
+        "type": "org.thingsboard.rule.engine.debug.TbMsgGeneratorNode",
+        "name": "Blood Sugar",
+        "debugMode": false,
+        "configuration": {
+          "msgCount": 0,
+          "periodInSeconds": 10,
+          "jsScript": "var msg = {\r\n    blood_Sugar: +(Math.random() * 150 + 70).toFixed(0)\r\n};\r\nvar metadata = {};\r\nvar msgType = \"POST_TELEMETRY_REQUEST\";\r\n\r\nreturn {\r\n    msg: msg,\r\n    metadata: metadata,\r\n    msgType: msgType\r\n};",
+          "originatorId": "d258f8b0-9ad1-11ea-ba29-93c92b718da1",
+          "originatorType": "DEVICE"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 62,
+          "layoutY": 442
+        },
+        "type": "org.thingsboard.rule.engine.debug.TbMsgGeneratorNode",
+        "name": "Blood Pressure",
+        "debugMode": false,
+        "configuration": {
+          "msgCount": 0,
+          "periodInSeconds": 10,
+          "jsScript": "var msg = {\r\n    blood_Pressure: +(Math.random() * 120 + 70).toFixed(0)\r\n};\r\nvar metadata = {};\r\nvar msgType = \"POST_TELEMETRY_REQUEST\";\r\n\r\nreturn {\r\n    msg: msg,\r\n    metadata: metadata,\r\n    msgType: msgType\r\n};",
+          "originatorId": "e5dab720-9ad1-11ea-ba29-93c92b718da1",
+          "originatorType": "DEVICE"
+        }
+      }
+    ],
+    "connections": null,
+    "ruleChainConnections": [
+      {
+        "fromIndex": 0,
+        "targetRuleChainId": {
+          "entityType": "RULE_CHAIN",
+          "id": "c1ad5c50-0fb6-11ea-a07b-510cd1df43ec"
+        },
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 377,
+          "layoutY": 257,
+          "ruleChainNodeId": "rule-chain-node-5"
+        },
+        "type": "Success"
+      },
+      {
+        "fromIndex": 1,
+        "targetRuleChainId": {
+          "entityType": "RULE_CHAIN",
+          "id": "c1ad5c50-0fb6-11ea-a07b-510cd1df43ec"
+        },
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 385,
+          "layoutY": 349,
+          "ruleChainNodeId": "rule-chain-node-6"
+        },
+        "type": "Success"
+      },
+      {
+        "fromIndex": 2,
+        "targetRuleChainId": {
+          "entityType": "RULE_CHAIN",
+          "id": "c1ad5c50-0fb6-11ea-a07b-510cd1df43ec"
+        },
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 399,
+          "layoutY": 440,
+          "ruleChainNodeId": "rule-chain-node-7"
+        },
+        "type": "Success"
+      }
+    ]
+  }
+}
