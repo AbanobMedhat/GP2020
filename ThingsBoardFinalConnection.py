@@ -8,8 +8,8 @@ import json
 import network
 
 # WiFi connection information
-wifiSSID = 'Not_found'
-wifiPassword = 'MOHAMED@AHMED?ESLAM!2006'
+wifiSSID = 'Name'
+wifiPassword = 'Password'
 
 # turn off the WiFi Access Point
 ap_if = network.WLAN(network.AP_IF)
