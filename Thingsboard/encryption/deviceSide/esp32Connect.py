@@ -32,15 +32,18 @@ if attempt_count == MAX_ATTEMPTS:
     print('could not connect to the WiFi network')
     sys.exit()
 
-
+# Connect to Thingsboard server using port 8883 as secure port 
 def connect():
+  # Device Token
   username="nSKYuguLUV2Iijjp6JWB"
+  # Host IP
   broker=  "18.191.196.152"
+  # Required Destination of Data
   topic = "v1/devices/me/telemetry"
   Mqtt_CLIENT_ID = "ABSE"
   PASSWORD=""
+  # SSL Certificate Path in Esp32
   ssl_params = {'cert':'mqttserver.pub.pem'}
-  # ssl_params = {'ca_certs':'mqttserver.pub.pem'}
   client = MQTTClient(client_id=Mqtt_CLIENT_ID, server=broker, port=8883, user=username, 
     password=PASSWORD, keepalive=10000, ssl=True, ssl_params=ssl_params)
   try:
@@ -49,6 +52,7 @@ def connect():
     print('Connection failed')
     sys.exit()
   data = dict()
+  # Data Sent
   data["TempData"] = 60
   data2=json.dumps(data)#convert it to json
 
