@@ -14,6 +14,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.example.future.healthapp.Utils.IntenetConn;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.ChildEventListener;
@@ -114,6 +115,10 @@ public class ScrollingActivity extends AppCompatActivity {
         item.setVisible(true);
     }*/
     void test_push(){
+        if(!(IntenetConn.check_internet(this))){
+            Toast.makeText(this,"Sorry,There's No Internet Connection",Toast.LENGTH_LONG).show();
+        }
+        else{
         for(int u=0;u<id;u++){
             EditText et=(EditText) findViewById(u+100);
             if(!(et.getText().toString().equals(""))){
@@ -133,7 +138,7 @@ public class ScrollingActivity extends AppCompatActivity {
         else{
             Toast.makeText(this,"Nothing to be uploaded !",Toast.LENGTH_SHORT).show();
         }
-    }
+    }}
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState) {
         super.onSaveInstanceState(savedInstanceState);

@@ -40,7 +40,7 @@ public class LongOperation extends AsyncTask<String, Void, String> {
             sender.sendMail("Health App",
 
 
-                    "Dear Dr."+params[2]+" , we hope this email finds you well.we wanna tell you that you have a new regisetration from " +
+                    "Dear Dr."+params[2]+" , we hope this email finds you well.we want to tell you that you have a new regisetration from " +
                             params[1]+"\n"+
                             ",Best wishes","heba.mostafa20497@gmail.com",
                     params[0]);

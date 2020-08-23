@@ -8,12 +8,14 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.future.healthapp.Band_Data.Req_report;
+import com.example.future.healthapp.Utils.IntenetConn;
 import com.example.future.healthapp.Utils.preferences;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -43,6 +45,9 @@ public class data_patient extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.data_main);
          GL=(GridLayout) findViewById(R.id.mlayout4) ;
+        if(!(IntenetConn.check_internet(this))){
+            Toast.makeText(this,"Sorry,There's No Internet Connection",Toast.LENGTH_LONG).show();
+        }
         GL.getBackground().setAlpha(50);
         mpref=new preferences(getApplicationContext());
         heart=(TextView) findViewById(R.id.heart);

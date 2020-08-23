@@ -20,6 +20,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.future.healthapp.Band_Data.Devices;
 import com.example.future.healthapp.Band_Data.generate_token;
 import com.example.future.healthapp.Gmail.LongOperation;
 import com.example.future.healthapp.Utils.FriendlyMessage;
@@ -84,12 +85,12 @@ Bundle mbundle;
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 final FirebaseUser user = firebaseAuth.getCurrentUser();
                 mpref=new preferences(getApplicationContext());
-                mpref.write_pref(0,"Key");
+               // mpref.write_pref(0,"Key");
                 mpref.write_pref_s("0","Date");
                 if (user != null) {
                     setContentView(R.layout.activity_main);
 
-                    /*Devices.push("Device","Heart_Rate","170f4c30-e2e8-11ea-b422-7f4a774adb51");
+                   /* Devices.push("Device","Heart_Rate","170f4c30-e2e8-11ea-b422-7f4a774adb51");
                     Devices.push("Device","Heart_Rate","05ef7fc0-e00d-11ea-9052-4f1f17c3591d");
                     Devices.push("Device","Heart_Rate","24010c80-e2e8-11ea-b422-7f4a774adb51");
 

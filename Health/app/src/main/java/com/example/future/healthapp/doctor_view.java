@@ -72,10 +72,13 @@ public class doctor_view extends AppCompatActivity implements MyPatientsProvider
 
         ///////////////////////
         empty=(ImageView)findViewById(R.id.empty);
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+
         empty.setVisibility(View.GONE);
         if(!(IntenetConn.check_internet(this))){
             empty.setVisibility(View.VISIBLE);
             empty.setImageResource(R.drawable.ic_wifi);
+            progressBar.setVisibility(View.GONE);
             Toast.makeText(this,"Sorry,There's No Internet Connection",Toast.LENGTH_LONG).show();
         }
 
@@ -83,7 +86,6 @@ public class doctor_view extends AppCompatActivity implements MyPatientsProvider
         GetMyPatients();
         //////////////////////////////////////////////HAndler delay
 
-        progressBar = (ProgressBar) findViewById(R.id.progressBar);
         if( newList.isEmpty()&&(IntenetConn.check_internet(this))){
         progressBar.setVisibility(View.VISIBLE);}
         final Handler handler = new Handler();
@@ -154,7 +156,13 @@ public class doctor_view extends AppCompatActivity implements MyPatientsProvider
             startActivity(intent);
             return true;
         }
-
+        if (id == R.id.action_reload) {
+            finish();
+            overridePendingTransition(0, 0);
+            /*startActivity(i);
+            overridePendingTransition(0, 0);*/
+            return true;
+        }
         return super.onOptionsItemSelected(item);
     }
     /////////////////////////////////

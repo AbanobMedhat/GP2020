@@ -92,7 +92,7 @@
     <property name="android.sdk.path" value="D:/Android/sdk" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/java/com/example" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="project.propDebugger" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">

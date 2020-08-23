@@ -5,11 +5,13 @@ import android.os.Bundle;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 
 import com.example.future.healthapp.Adaptors.DynamicPagerAdapter;
 import com.example.future.healthapp.Fragments.DataSensors;
 import com.example.future.healthapp.Fragments.FormResult;
+import com.example.future.healthapp.Utils.IntenetConn;
 import com.google.android.material.tabs.TabLayout;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +27,9 @@ public class Details_view extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.details_view);
-
+        if(!(IntenetConn.check_internet(this))){
+            Toast.makeText(this,"Sorry,There's No Internet Connection",Toast.LENGTH_LONG).show();
+        }
         long id=getIntent().getLongExtra("HEBA",0);
         ArrayList<String> mlist= doctor_view.get();
         int p=(int)id;

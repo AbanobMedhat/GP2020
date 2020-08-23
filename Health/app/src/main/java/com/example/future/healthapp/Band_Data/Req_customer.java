@@ -103,7 +103,7 @@ public class Req_customer extends AsyncTask<String, Void, String>{
         if (murl.equals("http://64.225.47.65:8080/api/customer")) {
             Map<String, String> params = new HashMap<String, String>();
             params.put("name", name);
-            params.put("title", name+"lerm");
+            params.put("title", name+"lvzm");
             params.put("email", email);
             parameter = new JSONObject(params);
         }
