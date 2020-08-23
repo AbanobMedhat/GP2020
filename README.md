@@ -27,10 +27,10 @@ patient’s treatment period in secure manner.
 
 ## Setup
 1. Download the Android Application from ([here](https://github.com/AbanobMedhat/GP2020/blob/master/Health/release/app-release.apk)).
-2- Login with your Google Account.
-3- Select the user type (Pateint or Doctor)
-4- If you are a patient you need to have the wearable vest and doctor to be monitord by him to use our system .
-5- enjoy our system and commit with doctor's instraction. 
+2. Login with your Google Account.
+3. Select the user type (Pateint or Doctor)
+4. If you are a patient you need to have the wearable vest and doctor to be monitord by him to use our system .
+5. enjoy our system and commit with doctor's instraction. 
 
 **Note:** Due to the effect of corona virus we replaced our sensors with virtual sensors generate realiable data.
 ## Application User Interface
