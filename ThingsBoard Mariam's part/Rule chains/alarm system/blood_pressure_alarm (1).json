@@ -1,0 +1,56 @@
+{
+  "ruleChain": {
+    "additionalInfo": {
+      "description": ""
+    },
+    "name": "Blood Pressure Alarm",
+    "firstRuleNodeId": null,
+    "root": false,
+    "debugMode": true,
+    "configuration": null
+  },
+  "metadata": {
+    "firstNodeIndex": 0,
+    "nodes": [
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 326,
+          "layoutY": 149
+        },
+        "type": "org.thingsboard.rule.engine.filter.TbJsFilterNode",
+        "name": "Dangerous Blood Pressure",
+        "debugMode": true,
+        "configuration": {
+          "jsScript": "return msg.blood_Pressure < 90 || msg.blood_Pressure > 140 ;"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 630,
+          "layoutY": 151
+        },
+        "type": "org.thingsboard.rule.engine.action.TbCreateAlarmNode",
+        "name": "Create Alarm",
+        "debugMode": false,
+        "configuration": {
+          "alarmDetailsBuildJs": "var details = {};\r\ndetails.blood_Pressure = msg.blood_Pressure;\r\n\r\nif (metadata.prevAlarmDetails) {\r\n    var prevDetails = JSON.parse(metadata.prevAlarmDetails);\r\n    details.count = prevDetails.count + 1;\r\n} else {\r\n    details.count = 1;\r\n}\r\n\r\nreturn details;",
+          "useMessageAlarmData": false,
+          "alarmType": "Critical Blood Pressue",
+          "severity": "CRITICAL",
+          "propagate": true,
+          "relationTypes": []
+        }
+      }
+    ],
+    "connections": [
+      {
+        "fromIndex": 0,
+        "toIndex": 1,
+        "type": "True"
+      }
+    ],
+    "ruleChainConnections": null
+  }
+}
