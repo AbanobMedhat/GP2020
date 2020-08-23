@@ -20,7 +20,7 @@ patient’s treatment period in secure manner.
 
 ## Source Paths
 - **ESP source code** is in ESP32 Sources folder.
-- **ThingsBoard Source code** is in ThingsBoard sources folder.
+- **ThingsBoard Source code & Secuirty Script** is in ThingsBoard sources folder.
 - **Android Application source code** is in Health Source folder.
 - **Micropython source code** is in MicroPython IDE Source folder
 - **Documentation and Analysis over the year** is in Documentaions and Analysis folder.
