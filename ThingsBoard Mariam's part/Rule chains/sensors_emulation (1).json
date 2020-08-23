@@ -1,0 +1,392 @@
+{
+  "ruleChain": {
+    "additionalInfo": {
+      "description": ""
+    },
+    "name": "Sensors Emulation",
+    "firstRuleNodeId": null,
+    "root": false,
+    "debugMode": true,
+    "configuration": null
+  },
+  "metadata": {
+    "firstNodeIndex": null,
+    "nodes": [
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 602,
+          "layoutY": 259
+        },
+        "type": "org.thingsboard.rule.engine.debug.TbMsgGeneratorNode",
+        "name": "Heart Rate Generator 2",
+        "debugMode": true,
+        "configuration": {
+          "msgCount": 0,
+          "periodInSeconds": 10,
+          "jsScript": "var msg = {\r\n    Heart_Rate: +(Math.random() * 40 + 60).toFixed(0)\r\n};\r\nvar metadata = {};\r\nvar msgType = \"POST_TELEMETRY_REQUEST\";\r\n\r\nreturn {\r\n    msg: msg,\r\n    metadata: metadata,\r\n    msgType: msgType\r\n};",
+          "originatorId": "170f4c30-e2e8-11ea-b422-7f4a774adb51",
+          "originatorType": "DEVICE"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 1128,
+          "layoutY": 256
+        },
+        "type": "org.thingsboard.rule.engine.debug.TbMsgGeneratorNode",
+        "name": "Heart Rate Generator 3",
+        "debugMode": true,
+        "configuration": {
+          "msgCount": 0,
+          "periodInSeconds": 10,
+          "jsScript": "var msg = {\r\n    Heart_Rate: +(Math.random() * 40 + 60).toFixed(0)\r\n};\r\nvar metadata = {};\r\nvar msgType = \"POST_TELEMETRY_REQUEST\";\r\n\r\nreturn {\r\n    msg: msg,\r\n    metadata: metadata,\r\n    msgType: msgType\r\n};",
+          "originatorId": "24010c80-e2e8-11ea-b422-7f4a774adb51",
+          "originatorType": "DEVICE"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 605,
+          "layoutY": 346
+        },
+        "type": "org.thingsboard.rule.engine.debug.TbMsgGeneratorNode",
+        "name": "Blood Sugar 2",
+        "debugMode": true,
+        "configuration": {
+          "msgCount": 0,
+          "periodInSeconds": 10,
+          "jsScript": "var msg = {\r\n    blood_Sugar: +(Math.random() * 40 + 90).toFixed(0)\r\n};\r\nvar metadata = {};\r\nvar msgType = \"POST_TELEMETRY_REQUEST\";\r\n\r\nreturn {\r\n    msg: msg,\r\n    metadata: metadata,\r\n    msgType: msgType\r\n};",
+          "originatorId": "bd926740-e2e8-11ea-b422-7f4a774adb51",
+          "originatorType": "DEVICE"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 1132,
+          "layoutY": 339
+        },
+        "type": "org.thingsboard.rule.engine.debug.TbMsgGeneratorNode",
+        "name": "Blood Sugar 3",
+        "debugMode": true,
+        "configuration": {
+          "msgCount": 0,
+          "periodInSeconds": 10,
+          "jsScript": "var msg = {\r\n    blood_Sugar: +(Math.random() * 40 + 90).toFixed(0)\r\n};\r\nvar metadata = {};\r\nvar msgType = \"POST_TELEMETRY_REQUEST\";\r\n\r\nreturn {\r\n    msg: msg,\r\n    metadata: metadata,\r\n    msgType: msgType\r\n};",
+          "originatorId": "ca661840-e2e8-11ea-b422-7f4a774adb51",
+          "originatorType": "DEVICE"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 609,
+          "layoutY": 420
+        },
+        "type": "org.thingsboard.rule.engine.debug.TbMsgGeneratorNode",
+        "name": "Blood Pressure Generator 2",
+        "debugMode": true,
+        "configuration": {
+          "msgCount": 0,
+          "periodInSeconds": 10,
+          "jsScript": "var msg = {\r\n    blood_Pressure: +(Math.random() * 30 + 90).toFixed(0)\r\n};\r\nvar metadata = {};\r\nvar msgType = \"POST_TELEMETRY_REQUEST\";\r\n\r\nreturn {\r\n    msg: msg,\r\n    metadata: metadata,\r\n    msgType: msgType\r\n};",
+          "originatorId": "a2ec01b0-e26d-11ea-8657-eff476d0dd7f",
+          "originatorType": "DEVICE"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 1142,
+          "layoutY": 418
+        },
+        "type": "org.thingsboard.rule.engine.debug.TbMsgGeneratorNode",
+        "name": "Blood Pressure Generator 3",
+        "debugMode": true,
+        "configuration": {
+          "msgCount": 0,
+          "periodInSeconds": 10,
+          "jsScript": "var msg = {\r\n    blood_Pressure: +(Math.random() * 30 + 90).toFixed(0)\r\n};\r\nvar metadata = {};\r\nvar msgType = \"POST_TELEMETRY_REQUEST\";\r\n\r\nreturn {\r\n    msg: msg,\r\n    metadata: metadata,\r\n    msgType: msgType\r\n};",
+          "originatorId": "89ae4110-e2e8-11ea-b422-7f4a774adb51",
+          "originatorType": "DEVICE"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 600,
+          "layoutY": 520
+        },
+        "type": "org.thingsboard.rule.engine.debug.TbMsgGeneratorNode",
+        "name": "Body Temperature Generator 2",
+        "debugMode": true,
+        "configuration": {
+          "msgCount": 0,
+          "periodInSeconds": 10,
+          "jsScript": "var msg = {\r\n     Body_Temperature: +(Math.random() * 0.1 + 37).toFixed(1)\r\n};\r\nvar metadata = {};\r\nvar msgType = \"POST_TELEMETRY_REQUEST\";\r\n\r\nreturn {\r\n    msg: msg,\r\n    metadata: metadata,\r\n    msgType: msgType\r\n};",
+          "originatorId": "9b0f6970-e2e8-11ea-b422-7f4a774adb51",
+          "originatorType": "DEVICE"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 1140,
+          "layoutY": 514
+        },
+        "type": "org.thingsboard.rule.engine.debug.TbMsgGeneratorNode",
+        "name": "Body Temperature Generator 3",
+        "debugMode": true,
+        "configuration": {
+          "msgCount": 0,
+          "periodInSeconds": 10,
+          "jsScript": "var msg = {\r\n     Body_Temperature: +(Math.random() * 0.1 + 37).toFixed(1)\r\n};\r\nvar metadata = {};\r\nvar msgType = \"POST_TELEMETRY_REQUEST\";\r\n\r\nreturn {\r\n    msg: msg,\r\n    metadata: metadata,\r\n    msgType: msgType\r\n};",
+          "originatorId": "a80fa8b0-e2e8-11ea-b422-7f4a774adb51",
+          "originatorType": "DEVICE"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 56,
+          "layoutY": 420
+        },
+        "type": "org.thingsboard.rule.engine.debug.TbMsgGeneratorNode",
+        "name": "Blood Pressure Generator",
+        "debugMode": true,
+        "configuration": {
+          "msgCount": 0,
+          "periodInSeconds": 10,
+          "jsScript": "var msg = {\r\n    blood_Pressure: +(Math.random() * 30 + 90).toFixed(0)\r\n};\r\nvar metadata = {};\r\nvar msgType = \"POST_TELEMETRY_REQUEST\";\r\n\r\nreturn {\r\n    msg: msg,\r\n    metadata: metadata,\r\n    msgType: msgType\r\n};",
+          "originatorId": "0f99cf50-e254-11ea-8657-eff476d0dd7f",
+          "originatorType": "DEVICE"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 49,
+          "layoutY": 524
+        },
+        "type": "org.thingsboard.rule.engine.debug.TbMsgGeneratorNode",
+        "name": "Body Temperature Generator",
+        "debugMode": true,
+        "configuration": {
+          "msgCount": 0,
+          "periodInSeconds": 10,
+          "jsScript": "var msg = {\r\n    Body_Temperature: +(Math.random() * 0.1 + 37).toFixed(1)\r\n};\r\nvar metadata = {};\r\nvar msgType = \"POST_TELEMETRY_REQUEST\";\r\n\r\nreturn {\r\n    msg: msg,\r\n    metadata: metadata,\r\n    msgType: msgType\r\n};",
+          "originatorId": "74d326b0-e244-11ea-a7b8-cd544eaecddf",
+          "originatorType": "DEVICE"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 58,
+          "layoutY": 258
+        },
+        "type": "org.thingsboard.rule.engine.debug.TbMsgGeneratorNode",
+        "name": "Heart Rate Generator",
+        "debugMode": true,
+        "configuration": {
+          "msgCount": 0,
+          "periodInSeconds": 10,
+          "jsScript": "var msg = {\r\n    Heart_Rate : +(Math.random() * 40 + 60).toFixed(0)\r\n};\r\nvar metadata = {};\r\nvar msgType = \"POST_TELEMETRY_REQUEST\";\r\n\r\nreturn {\r\n    msg: msg,\r\n    metadata: metadata,\r\n    msgType: msgType\r\n};",
+          "originatorId": "05ef7fc0-e00d-11ea-9052-4f1f17c3591d",
+          "originatorType": "DEVICE"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 60,
+          "layoutY": 348
+        },
+        "type": "org.thingsboard.rule.engine.debug.TbMsgGeneratorNode",
+        "name": "Blood Sugar",
+        "debugMode": true,
+        "configuration": {
+          "msgCount": 0,
+          "periodInSeconds": 10,
+          "jsScript": "var msg = {\r\n    blood_Sugar: +(Math.random() * 40 + 90).toFixed(0)\r\n};\r\nvar metadata = {};\r\nvar msgType = \"POST_TELEMETRY_REQUEST\";\r\n\r\nreturn {\r\n    msg: msg,\r\n    metadata: metadata,\r\n    msgType: msgType\r\n};",
+          "originatorId": "313ab870-e00d-11ea-9052-4f1f17c3591d",
+          "originatorType": "DEVICE"
+        }
+      }
+    ],
+    "connections": null,
+    "ruleChainConnections": [
+      {
+        "fromIndex": 0,
+        "targetRuleChainId": {
+          "entityType": "RULE_CHAIN",
+          "id": "225920f0-e00b-11ea-9052-4f1f17c3591d"
+        },
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 920,
+          "layoutY": 309,
+          "ruleChainNodeId": "rule-chain-node-14"
+        },
+        "type": "Success"
+      },
+      {
+        "fromIndex": 1,
+        "targetRuleChainId": {
+          "entityType": "RULE_CHAIN",
+          "id": "225920f0-e00b-11ea-9052-4f1f17c3591d"
+        },
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 1437,
+          "layoutY": 309,
+          "ruleChainNodeId": "rule-chain-node-15"
+        },
+        "type": "Success"
+      },
+      {
+        "fromIndex": 2,
+        "targetRuleChainId": {
+          "entityType": "RULE_CHAIN",
+          "id": "225920f0-e00b-11ea-9052-4f1f17c3591d"
+        },
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 920,
+          "layoutY": 309,
+          "ruleChainNodeId": "rule-chain-node-14"
+        },
+        "type": "Success"
+      },
+      {
+        "fromIndex": 3,
+        "targetRuleChainId": {
+          "entityType": "RULE_CHAIN",
+          "id": "225920f0-e00b-11ea-9052-4f1f17c3591d"
+        },
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 1437,
+          "layoutY": 309,
+          "ruleChainNodeId": "rule-chain-node-15"
+        },
+        "type": "Success"
+      },
+      {
+        "fromIndex": 4,
+        "targetRuleChainId": {
+          "entityType": "RULE_CHAIN",
+          "id": "225920f0-e00b-11ea-9052-4f1f17c3591d"
+        },
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 920,
+          "layoutY": 309,
+          "ruleChainNodeId": "rule-chain-node-14"
+        },
+        "type": "Success"
+      },
+      {
+        "fromIndex": 5,
+        "targetRuleChainId": {
+          "entityType": "RULE_CHAIN",
+          "id": "225920f0-e00b-11ea-9052-4f1f17c3591d"
+        },
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 1437,
+          "layoutY": 309,
+          "ruleChainNodeId": "rule-chain-node-15"
+        },
+        "type": "Success"
+      },
+      {
+        "fromIndex": 6,
+        "targetRuleChainId": {
+          "entityType": "RULE_CHAIN",
+          "id": "225920f0-e00b-11ea-9052-4f1f17c3591d"
+        },
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 920,
+          "layoutY": 309,
+          "ruleChainNodeId": "rule-chain-node-14"
+        },
+        "type": "Success"
+      },
+      {
+        "fromIndex": 7,
+        "targetRuleChainId": {
+          "entityType": "RULE_CHAIN",
+          "id": "225920f0-e00b-11ea-9052-4f1f17c3591d"
+        },
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 1437,
+          "layoutY": 309,
+          "ruleChainNodeId": "rule-chain-node-15"
+        },
+        "type": "Success"
+      },
+      {
+        "fromIndex": 8,
+        "targetRuleChainId": {
+          "entityType": "RULE_CHAIN",
+          "id": "225920f0-e00b-11ea-9052-4f1f17c3591d"
+        },
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 372,
+          "layoutY": 306,
+          "ruleChainNodeId": "rule-chain-node-16"
+        },
+        "type": "Success"
+      },
+      {
+        "fromIndex": 9,
+        "targetRuleChainId": {
+          "entityType": "RULE_CHAIN",
+          "id": "225920f0-e00b-11ea-9052-4f1f17c3591d"
+        },
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 372,
+          "layoutY": 306,
+          "ruleChainNodeId": "rule-chain-node-16"
+        },
+        "type": "Success"
+      },
+      {
+        "fromIndex": 10,
+        "targetRuleChainId": {
+          "entityType": "RULE_CHAIN",
+          "id": "225920f0-e00b-11ea-9052-4f1f17c3591d"
+        },
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 372,
+          "layoutY": 306,
+          "ruleChainNodeId": "rule-chain-node-16"
+        },
+        "type": "Success"
+      },
+      {
+        "fromIndex": 11,
+        "targetRuleChainId": {
+          "entityType": "RULE_CHAIN",
+          "id": "225920f0-e00b-11ea-9052-4f1f17c3591d"
+        },
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 372,
+          "layoutY": 306,
+          "ruleChainNodeId": "rule-chain-node-16"
+        },
+        "type": "Success"
+      }
+    ]
+  }
+}
