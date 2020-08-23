@@ -19,11 +19,11 @@ With this system we hope to provide a better vision to the doctor during the
 patient’s treatment period in secure manner.
 
 ## Source Paths
-**ESP source code** is in ESP32 Sources folder.
-**ThingsBoard Source code** is in ThingsBoard sources folder.
-**Android Application source code** is in Health Source folder.
-**Micropython source code** is in MicroPython IDE Source folder
-**Documentation and Analysis over the year** is in Documentaions and Analysis folder.
+- **ESP source code** is in ESP32 Sources folder.
+- **ThingsBoard Source code** is in ThingsBoard sources folder.
+- **Android Application source code** is in Health Source folder.
+- **Micropython source code** is in MicroPython IDE Source folder
+- **Documentation and Analysis over the year** is in Documentaions and Analysis folder.
 
 ## Setup
 1. Download the Android Application from ([here](https://github.com/AbanobMedhat/GP2020/blob/master/Health/release/app-release.apk)).
