@@ -32,12 +32,8 @@ if attempt_count == MAX_ATTEMPTS:
     sys.exit()
 
 
-def connect():
-  username="07XKgbiYxCZZh02O7TGt"
-  broker=  "demo.thingsboard.io"
-  topic = "v1/devices/me/telemetry"
-  Mqtt_CLIENT_ID = "ABSE"
-  PASSWORD=""
+def connect(username, broker, topic, Mqtt_CLIENT_ID, PASSWORD):
+  
   client = MQTTClient(client_id=Mqtt_CLIENT_ID, server=broker, port=1883, user=username, password=PASSWORD, keepalive=10000)
   try:
     client.connect()
@@ -52,4 +48,9 @@ def connect():
   client.publish(topic,data2)
   print("Done")
   time.sleep(5)
-connect()
+username="07XKgbiYxCZZh02O7TGt"
+broker=  "demo.thingsboard.io"
+topic = "v1/devices/me/telemetry"
+Mqtt_CLIENT_ID = "ABSE"
+PASSWORD=""
+connect(username, broker, topic, Mqtt_CLIENT_ID, PASSWORD)
