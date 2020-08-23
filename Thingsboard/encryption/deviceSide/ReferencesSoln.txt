@@ -1,0 +1,8 @@
+https://forums.losant.com/t/solved-micropython-and-mqtt-libs/1303/6
+https://forum.pycom.io/topic/2519/ssl-connection-to-aws-iot-from-esp8266-micropython/19
+https://github.com/micropython/micropython/issues/3687(Magic Soln)
+https://github.com/micropython/micropython-esp32/issues/132
+https://forum.micropython.org/viewtopic.php?t=8031
+https://github.com/micropython/micropython/blob/master/examples/network/http_client_ssl.py
+https://github.com/micropython/micropython/pull/3398
+https://docs.micropython.org/en/latest/library/ussl.html

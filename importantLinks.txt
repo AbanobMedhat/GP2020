@@ -1,0 +1,24 @@
+demo api links : https://demo.thingsboard.io/swagger-ui.html
+professional edition : https://cloud.thingsboard.io/swagger-ui.html
+Rest API : https://thingsboard.io/docs/reference/rest-api/
+MQTT over SSL : https://thingsboard.io/docs/user-guide/mqtt-over-ssl/
+Put swagger-ui.html after the url to see the avaliable APIs
+
+REST Client in JAVA
+
+https://thingsboard.io/docs/reference/rest-client/
+
+BLuetooth Service and Characteristics
+Heart Rate Sensor 
+https://www.bluetooth.com/specifications/gatt/services/
+
+BLE Connector thingsboard 
+
+https://thingsboard.io/docs/iot-gateway/config/ble/
+
+BLE thingsboard connection to connect sensor:
+https://thingsboard.io/docs/iot-gateway/guides/how-to-connect-ble-sensor-using-gateway/
+
+Thingsboard Architecture (important for encryption):
+https://thingsboard.io/docs/reference/architecture/
+

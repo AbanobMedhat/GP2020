@@ -1,0 +1,5 @@
+https://github.com/micropython/micropython-lib/blob/master/umqtt.robust/umqtt/robust.py
+https://github.com/miketeachman/micropython-thingspeak-mqtt-esp8266/blob/master/subscribeThingspeak.py
+https://github.com/pycom/pycom-micropython-sigfox/tree/master/esp32
+https://github.com/micropython/micropython-lib/tree/master/umqtt.simple
+https://forum.pycom.io/topic/4775/solved-mqtt-and-tls
