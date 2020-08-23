@@ -1,0 +1,178 @@
+{
+  "ruleChain": {
+    "additionalInfo": {
+      "description": ""
+    },
+    "name": "Root Rule Chain",
+    "firstRuleNodeId": null,
+    "root": false,
+    "debugMode": true,
+    "configuration": null
+  },
+  "metadata": {
+    "firstNodeIndex": 5,
+    "nodes": [
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 690,
+          "layoutY": 29
+        },
+        "type": "org.thingsboard.rule.engine.telemetry.TbMsgAttributesNode",
+        "name": "Save Client Attributes",
+        "debugMode": false,
+        "configuration": {
+          "scope": "SERVER_SCOPE"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 697,
+          "layoutY": 242
+        },
+        "type": "org.thingsboard.rule.engine.action.TbLogNode",
+        "name": "Log RPC from Device",
+        "debugMode": false,
+        "configuration": {
+          "jsScript": "return 'Incoming message:\\n' + JSON.stringify(msg) + '\\nIncoming metadata:\\n' + JSON.stringify(metadata);"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 701,
+          "layoutY": 328
+        },
+        "type": "org.thingsboard.rule.engine.action.TbLogNode",
+        "name": "Log Other",
+        "debugMode": false,
+        "configuration": {
+          "jsScript": "return 'Incoming message:\\n' + JSON.stringify(msg) + '\\nIncoming metadata:\\n' + JSON.stringify(metadata);"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 699,
+          "layoutY": 494
+        },
+        "type": "org.thingsboard.rule.engine.rpc.TbSendRPCRequestNode",
+        "name": "RPC Call Request",
+        "debugMode": false,
+        "configuration": {
+          "timeoutInSeconds": 60
+        }
+      },
+      {
+        "additionalInfo": {
+          "layoutX": 707,
+          "layoutY": 138
+        },
+        "type": "org.thingsboard.rule.engine.telemetry.TbMsgTimeseriesNode",
+        "name": "Save Timeseries",
+        "debugMode": false,
+        "configuration": {
+          "defaultTTL": 0
+        }
+      },
+      {
+        "additionalInfo": {
+          "layoutX": 322,
+          "layoutY": 146
+        },
+        "type": "org.thingsboard.rule.engine.filter.TbMsgTypeSwitchNode",
+        "name": "Message Type Switch",
+        "debugMode": false,
+        "configuration": {
+          "version": 0
+        }
+      }
+    ],
+    "connections": [
+      {
+        "fromIndex": 5,
+        "toIndex": 4,
+        "type": "Post telemetry"
+      },
+      {
+        "fromIndex": 5,
+        "toIndex": 0,
+        "type": "Post attributes"
+      },
+      {
+        "fromIndex": 5,
+        "toIndex": 1,
+        "type": "RPC Request from Device"
+      },
+      {
+        "fromIndex": 5,
+        "toIndex": 2,
+        "type": "Other"
+      },
+      {
+        "fromIndex": 5,
+        "toIndex": 3,
+        "type": "RPC Request to Device"
+      }
+    ],
+    "ruleChainConnections": [
+      {
+        "fromIndex": 4,
+        "targetRuleChainId": {
+          "entityType": "RULE_CHAIN",
+          "id": "784629f0-e550-11ea-a983-8501bebf42a7"
+        },
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 1100,
+          "layoutY": 51,
+          "ruleChainNodeId": "rule-chain-node-8"
+        },
+        "type": "Success"
+      },
+      {
+        "fromIndex": 4,
+        "targetRuleChainId": {
+          "entityType": "RULE_CHAIN",
+          "id": "99113e90-e550-11ea-a983-8501bebf42a7"
+        },
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 1098,
+          "layoutY": 119,
+          "ruleChainNodeId": "rule-chain-node-9"
+        },
+        "type": "Success"
+      },
+      {
+        "fromIndex": 4,
+        "targetRuleChainId": {
+          "entityType": "RULE_CHAIN",
+          "id": "a880d020-e550-11ea-a983-8501bebf42a7"
+        },
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 1105,
+          "layoutY": 195,
+          "ruleChainNodeId": "rule-chain-node-10"
+        },
+        "type": "Success"
+      },
+      {
+        "fromIndex": 4,
+        "targetRuleChainId": {
+          "entityType": "RULE_CHAIN",
+          "id": "4ca927c0-e550-11ea-a983-8501bebf42a7"
+        },
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 1110,
+          "layoutY": 274,
+          "ruleChainNodeId": "rule-chain-node-11"
+        },
+        "type": "Success"
+      }
+    ]
+  }
+}
