@@ -24,7 +24,7 @@
           },
           "showTitle": true,
           "backgroundColor": "#fefefe",
-          "color": "#ff0767",
+          "color": "#0c0c0c",
           "padding": "4px",
           "settings": {
             "enableSearch": true,
@@ -34,7 +34,7 @@
             "displayEntityName": true,
             "displayEntityType": true,
             "enableSelectColumnDisplay": true,
-            "entitiesTitle": "Sensor's Name"
+            "entitiesTitle": "Patient 1 "
           },
           "title": "New Entities table",
           "dropShadow": true,
@@ -60,14 +60,11 @@
                   "settings": {
                     "columnWidth": "0px",
                     "useCellStyleFunction": false,
-                    "useCellContentFunction": false
+                    "cellStyleFunction": "",
+                    "useCellContentFunction": false,
+                    "cellContentFunction": ""
                   },
-                  "_hash": 0.5597179067611355,
-                  "units": null,
-                  "decimals": null,
-                  "funcBody": null,
-                  "usePostProcessing": null,
-                  "postFuncBody": null
+                  "_hash": 0.9656685538837262
                 },
                 {
                   "name": "blood_Sugar",
@@ -81,13 +78,13 @@
                     "useCellContentFunction": false,
                     "cellContentFunction": ""
                   },
-                  "_hash": 0.0971577144833482
+                  "_hash": 0.12024034999524935
                 },
                 {
-                  "name": "Heart_Rate",
+                  "name": "Body_Temperature",
                   "type": "timeseries",
-                  "label": "Heart_Rate",
-                  "color": "#f44336",
+                  "label": "Body_Temperature",
+                  "color": "#ffc107",
                   "settings": {
                     "columnWidth": "0px",
                     "useCellStyleFunction": false,
@@ -95,7 +92,21 @@
                     "useCellContentFunction": false,
                     "cellContentFunction": ""
                   },
-                  "_hash": 0.06495105680175084
+                  "_hash": 0.8382096350212225
+                },
+                {
+                  "name": "Heart_Rate",
+                  "type": "timeseries",
+                  "label": "Heart_Rate",
+                  "color": "#ffc107",
+                  "settings": {
+                    "columnWidth": "0px",
+                    "useCellStyleFunction": false,
+                    "cellStyleFunction": "",
+                    "useCellContentFunction": false,
+                    "cellContentFunction": ""
+                  },
+                  "_hash": 0.17107321254803143
                 }
               ]
             }
@@ -106,7 +117,7 @@
                 "name": "row_click",
                 "icon": "more_horiz",
                 "type": "custom",
-                "customFunction": "var $injector = widgetContext.$scope.$injector;\r\n$injector.get(widgetContext.servicesMap.get('deviceService')).getDevice(entityId.id).subscribe(\r\n    function(device) {\r\n        if (device.name == 'Blood Pressure') {\r\n            openDashboardState('Pressure_Details');\r\n            \r\n        } else if (device.name == 'Blood Sugar Level') {\r\n            openDashboardState('Sugar_Details');\r\n            \r\n        } else {\r\n            openDashboardState('Heart_Details');\r\n        }\r\n    });\r\n\r\nfunction openDashboardState(stateId) {\r\n    var params = {\r\n        entityId: entityId,\r\n        entityName: entityName\r\n    };\r\n    widgetContext.stateController.openState(stateId, params, false);\r\n}",
+                "customFunction": "var $injector = widgetContext.$scope.$injector;\r\n$injector.get(widgetContext.servicesMap.get('deviceService')).getDevice(entityId.id).subscribe(\r\n    function(device) {\r\n        if (device.name == 'Blood Pressure') {\r\n            openDashboardState('Pressure_Details');\r\n            \r\n        } else if (device.name == 'Blood Sugar Level') {\r\n            openDashboardState('Sugar_Details');\r\n            \r\n        } else if (device.name == 'Heart Rate') {\r\n            openDashboardState('Heart_Details');\r\n        \r\n        \r\n        }else {\r\n            openDashboardState('Temp_Details');\r\n        }\r\n    });\r\n\r\nfunction openDashboardState(stateId) {\r\n    var params = {\r\n        entityId: entityId,\r\n        entityName: entityName\r\n    };\r\n    widgetContext.stateController.openState(stateId, params, false);\r\n}",
                 "id": "e33476d6-5315-0e1a-b42b-c7f6365b46f9"
               }
             ]
@@ -284,7 +295,7 @@
             "hideAggInterval": false,
             "selectedTab": 0,
             "realtime": {
-              "timewindowMs": 300000,
+              "timewindowMs": 600000,
               "interval": 1000
             },
             "aggregation": {
@@ -813,53 +824,6 @@
         "col": 0,
         "id": "294db039-2322-ae30-9e45-f25087630f80"
       },
-      "7ddfeab4-a59c-b834-bf4f-a73ec9d78079": {
-        "isSystemType": true,
-        "bundleAlias": "control_widgets",
-        "typeAlias": "knob_control",
-        "type": "rpc",
-        "title": "New widget",
-        "sizeX": 5,
-        "sizeY": 4.5,
-        "config": {
-          "targetDeviceAliases": [],
-          "showTitle": true,
-          "backgroundColor": "#e6e7e8",
-          "color": "rgba(0, 0, 0, 0.87)",
-          "padding": "0px",
-          "settings": {
-            "requestTimeout": 500,
-            "maxValue": 200,
-            "initialValue": 50,
-            "minValue": 0,
-            "getValueMethod": "getValue",
-            "setValueMethod": "setValue"
-          },
-          "title": "Blood Pressure Control",
-          "dropShadow": true,
-          "enableFullscreen": false,
-          "widgetStyle": {},
-          "titleStyle": {
-            "fontSize": "16px",
-            "fontWeight": 400
-          },
-          "useDashboardTimewindow": true,
-          "showLegend": false,
-          "actions": {},
-          "decimals": 2,
-          "datasources": [],
-          "targetDeviceAliasIds": [
-            "94be6819-d064-0ce9-c18c-920f04e2c724"
-          ],
-          "showTitleIcon": false,
-          "iconColor": "rgba(0, 0, 0, 0.87)",
-          "iconSize": "24px",
-          "titleTooltip": ""
-        },
-        "row": 0,
-        "col": 0,
-        "id": "7ddfeab4-a59c-b834-bf4f-a73ec9d78079"
-      },
       "a7cd15b9-1b4e-4462-4352-cfc8e3101261": {
         "isSystemType": true,
         "bundleAlias": "control_widgets",
@@ -906,53 +870,6 @@
         "row": 0,
         "col": 0,
         "id": "a7cd15b9-1b4e-4462-4352-cfc8e3101261"
-      },
-      "2303c806-07fc-2ac7-a9f2-345d052a95f8": {
-        "isSystemType": true,
-        "bundleAlias": "control_widgets",
-        "typeAlias": "knob_control",
-        "type": "rpc",
-        "title": "New widget",
-        "sizeX": 5,
-        "sizeY": 4.5,
-        "config": {
-          "targetDeviceAliases": [],
-          "showTitle": true,
-          "backgroundColor": "#e6e7e8",
-          "color": "rgba(0, 0, 0, 0.87)",
-          "padding": "0px",
-          "settings": {
-            "requestTimeout": 500,
-            "maxValue": 150,
-            "initialValue": 50,
-            "minValue": 0,
-            "getValueMethod": "getValue",
-            "setValueMethod": "setValue"
-          },
-          "title": "Heart Rate Control",
-          "dropShadow": true,
-          "enableFullscreen": false,
-          "widgetStyle": {},
-          "titleStyle": {
-            "fontSize": "16px",
-            "fontWeight": 400
-          },
-          "useDashboardTimewindow": true,
-          "showLegend": false,
-          "actions": {},
-          "decimals": 2,
-          "datasources": [],
-          "targetDeviceAliasIds": [
-            "073a29ef-b8e6-deef-7d52-e692e13e62cc"
-          ],
-          "showTitleIcon": false,
-          "iconColor": "rgba(0, 0, 0, 0.87)",
-          "iconSize": "24px",
-          "titleTooltip": ""
-        },
-        "row": 0,
-        "col": 0,
-        "id": "2303c806-07fc-2ac7-a9f2-345d052a95f8"
       },
       "62c02657-ed98-6863-da3c-f15438fce8d3": {
         "isSystemType": true,
@@ -1045,11 +962,45 @@
                 "color": "#607d8b",
                 "settings": {},
                 "_hash": 0.7804781170916075
+              },
+              {
+                "name": "details.Heart_Rate",
+                "type": "alarm",
+                "label": "Heart_Rate value",
+                "color": "#9c27b0",
+                "settings": {
+                  "columnWidth": "0px",
+                  "useCellStyleFunction": false,
+                  "useCellContentFunction": false
+                },
+                "_hash": 0.6944090216994607,
+                "units": null,
+                "decimals": null,
+                "funcBody": null,
+                "usePostProcessing": null,
+                "postFuncBody": null
+              },
+              {
+                "name": "details.count",
+                "type": "alarm",
+                "label": "count",
+                "color": "#8bc34a",
+                "settings": {
+                  "columnWidth": "0px",
+                  "useCellStyleFunction": false,
+                  "useCellContentFunction": false
+                },
+                "_hash": 0.9046305709637623,
+                "units": null,
+                "decimals": null,
+                "funcBody": null,
+                "usePostProcessing": null,
+                "postFuncBody": null
               }
             ]
           },
           "alarmSearchStatus": "ACTIVE",
-          "alarmsPollingInterval": 5,
+          "alarmsPollingInterval": 1,
           "showTitleIcon": false,
           "titleIcon": "more_horiz",
           "iconColor": "rgba(0, 0, 0, 0.87)",
@@ -1059,7 +1010,7 @@
           "displayTimewindow": true,
           "actions": {},
           "datasources": [],
-          "alarmsMaxCountLoad": 0,
+          "alarmsMaxCountLoad": 10,
           "alarmsFetchSize": 100
         },
         "row": 0,
@@ -1228,7 +1179,7 @@
           "alarmSource": {
             "type": "entity",
             "name": "alarms",
-            "entityAliasId": "073a29ef-b8e6-deef-7d52-e692e13e62cc",
+            "entityAliasId": "94be6819-d064-0ce9-c18c-920f04e2c724",
             "dataKeys": [
               {
                 "name": "createdTime",
@@ -1273,7 +1224,350 @@
             ]
           },
           "alarmSearchStatus": "ACTIVE",
-          "alarmsPollingInterval": 5,
+          "alarmsPollingInterval": 1,
+          "showTitleIcon": false,
+          "titleIcon": "more_horiz",
+          "iconColor": "rgba(0, 0, 0, 0.87)",
+          "iconSize": "24px",
+          "titleTooltip": "",
+          "widgetStyle": {},
+          "displayTimewindow": true,
+          "actions": {},
+          "datasources": [],
+          "alarmsMaxCountLoad": 1,
+          "alarmsFetchSize": 100
+        },
+        "row": 0,
+        "col": 0,
+        "id": "07d2bb3d-59ff-5dcc-0456-ba2790817eb7"
+      },
+      "3a0e329f-9b30-2353-6561-84fcfe68c6c0": {
+        "isSystemType": true,
+        "bundleAlias": "charts",
+        "typeAlias": "basic_timeseries",
+        "type": "timeseries",
+        "title": "New widget",
+        "sizeX": 8,
+        "sizeY": 5,
+        "config": {
+          "datasources": [
+            {
+              "type": "entity",
+              "name": null,
+              "entityAliasId": "096c2559-ccf9-6cc0-0373-1682f95270c7",
+              "dataKeys": [
+                {
+                  "name": "Body_Temperature",
+                  "type": "timeseries",
+                  "label": "Body_Temperature",
+                  "color": "#2196f3",
+                  "settings": {
+                    "excludeFromStacking": false,
+                    "hideDataByDefault": false,
+                    "disableDataHiding": false,
+                    "removeFromLegend": false,
+                    "showLines": true,
+                    "fillLines": false,
+                    "showPoints": false,
+                    "showPointShape": "circle",
+                    "pointShapeFormatter": "var size = radius * Math.sqrt(Math.PI) / 2;\nctx.moveTo(x - size, y - size);\nctx.lineTo(x + size, y + size);\nctx.moveTo(x - size, y + size);\nctx.lineTo(x + size, y - size);",
+                    "showPointsLineWidth": 5,
+                    "showPointsRadius": 3,
+                    "tooltipValueFormatter": "",
+                    "showSeparateAxis": false,
+                    "axisTitle": "",
+                    "axisPosition": "left",
+                    "axisTicksFormatter": "",
+                    "thresholds": [
+                      {
+                        "thresholdValueSource": "predefinedValue"
+                      }
+                    ],
+                    "comparisonSettings": {
+                      "showValuesForComparison": true,
+                      "comparisonValuesLabel": "",
+                      "color": ""
+                    }
+                  },
+                  "_hash": 0.9744006567864794
+                }
+              ]
+            }
+          ],
+          "timewindow": {
+            "hideInterval": false,
+            "hideAggregation": false,
+            "hideAggInterval": false,
+            "selectedTab": 0,
+            "realtime": {
+              "timewindowMs": 600000,
+              "interval": 1000
+            },
+            "aggregation": {
+              "type": "AVG",
+              "limit": 2500
+            }
+          },
+          "showTitle": true,
+          "backgroundColor": "#fff",
+          "color": "rgba(0, 0, 0, 0.87)",
+          "padding": "8px",
+          "settings": {
+            "shadowSize": 4,
+            "fontColor": "#545454",
+            "fontSize": 10,
+            "xaxis": {
+              "showLabels": true,
+              "color": "#545454"
+            },
+            "yaxis": {
+              "showLabels": true,
+              "color": "#545454"
+            },
+            "grid": {
+              "color": "#545454",
+              "tickColor": "#DDDDDD",
+              "verticalLines": true,
+              "horizontalLines": true,
+              "outlineWidth": 1
+            },
+            "stack": false,
+            "tooltipIndividual": false,
+            "timeForComparison": "months",
+            "xaxisSecond": {
+              "axisPosition": "top",
+              "showLabels": true
+            },
+            "smoothLines": true
+          },
+          "title": "Body Temperature History",
+          "dropShadow": true,
+          "enableFullscreen": true,
+          "titleStyle": {
+            "fontSize": "16px",
+            "fontWeight": 400
+          },
+          "useDashboardTimewindow": false,
+          "displayTimewindow": true,
+          "showTitleIcon": false,
+          "iconColor": "rgba(0, 0, 0, 0.87)",
+          "iconSize": "24px",
+          "titleTooltip": "",
+          "widgetStyle": {},
+          "showLegend": true,
+          "legendConfig": {
+            "direction": "column",
+            "position": "bottom",
+            "showMin": true,
+            "showMax": true,
+            "showAvg": true,
+            "showTotal": false
+          }
+        },
+        "row": 0,
+        "col": 0,
+        "id": "3a0e329f-9b30-2353-6561-84fcfe68c6c0"
+      },
+      "1ea6c6a0-3843-d718-67f7-a28064590a58": {
+        "isSystemType": true,
+        "bundleAlias": "analogue_gauges",
+        "typeAlias": "radial_gauge_canvas_gauges",
+        "type": "latest",
+        "title": "New widget",
+        "sizeX": 6,
+        "sizeY": 5,
+        "config": {
+          "datasources": [
+            {
+              "type": "entity",
+              "name": null,
+              "entityAliasId": "096c2559-ccf9-6cc0-0373-1682f95270c7",
+              "dataKeys": [
+                {
+                  "name": "Body_Temperature",
+                  "type": "timeseries",
+                  "label": "Body_Temperature",
+                  "color": "#2196f3",
+                  "settings": {},
+                  "_hash": 0.22705957721049974
+                }
+              ]
+            }
+          ],
+          "timewindow": {
+            "realtime": {
+              "timewindowMs": 60000
+            }
+          },
+          "showTitle": false,
+          "backgroundColor": "rgb(255, 255, 255)",
+          "color": "rgba(0, 0, 0, 0.87)",
+          "padding": "8px",
+          "settings": {
+            "maxValue": 41,
+            "startAngle": 45,
+            "ticksAngle": 270,
+            "showBorder": true,
+            "defaultColor": "#e65100",
+            "needleCircleSize": 10,
+            "highlights": [],
+            "showUnitTitle": true,
+            "colorPlate": "#fff",
+            "colorMajorTicks": "#444",
+            "colorMinorTicks": "#666",
+            "minorTicks": 10,
+            "highlightsWidth": 15,
+            "valueBox": true,
+            "animation": true,
+            "animationDuration": 500,
+            "animationRule": "cycle",
+            "colorNeedleShadowUp": "rgba(2, 255, 255, 0)",
+            "numbersFont": {
+              "family": "Roboto",
+              "size": 18,
+              "style": "normal",
+              "weight": "500",
+              "color": "#616161"
+            },
+            "titleFont": {
+              "family": "Roboto",
+              "size": 24,
+              "style": "normal",
+              "weight": "500",
+              "color": "#888"
+            },
+            "unitsFont": {
+              "family": "Roboto",
+              "size": 22,
+              "style": "normal",
+              "weight": "500",
+              "color": "#616161"
+            },
+            "valueFont": {
+              "family": "Segment7Standard",
+              "size": 36,
+              "style": "normal",
+              "weight": "normal",
+              "shadowColor": "rgba(0, 0, 0, 0.49)",
+              "color": "#444"
+            },
+            "colorNeedleShadowDown": "rgba(188,143,143,0.45)",
+            "colorValueBoxRect": "#888",
+            "colorValueBoxRectEnd": "#666",
+            "colorValueBoxBackground": "#babab2",
+            "colorValueBoxShadow": "rgba(0,0,0,1)",
+            "unitTitle": "Body Temperature",
+            "minValue": 36,
+            "valueInt": 2
+          },
+          "title": "New Radial gauge - Canvas Gauges",
+          "dropShadow": true,
+          "enableFullscreen": true,
+          "titleStyle": {
+            "fontSize": "16px",
+            "fontWeight": 400
+          }
+        },
+        "row": 0,
+        "col": 0,
+        "id": "1ea6c6a0-3843-d718-67f7-a28064590a58"
+      },
+      "517a28c7-51dc-27e2-61a2-b1f396c321fd": {
+        "isSystemType": true,
+        "bundleAlias": "alarm_widgets",
+        "typeAlias": "alarms_table",
+        "type": "alarm",
+        "title": "New widget",
+        "sizeX": 10.5,
+        "sizeY": 6.5,
+        "config": {
+          "timewindow": {
+            "realtime": {
+              "interval": 1000,
+              "timewindowMs": 86400000
+            },
+            "aggregation": {
+              "type": "NONE",
+              "limit": 200
+            }
+          },
+          "showTitle": true,
+          "backgroundColor": "#ffffff",
+          "color": "rgba(0,0,0,0.87)",
+          "padding": "4px",
+          "settings": {
+            "enableSelection": true,
+            "enableSearch": true,
+            "displayDetails": true,
+            "allowAcknowledgment": true,
+            "allowClear": true,
+            "displayPagination": false,
+            "defaultPageSize": 10,
+            "defaultSortOrder": "-createdTime",
+            "enableSelectColumnDisplay": true,
+            "enableStatusFilter": true,
+            "enableStickyAction": true,
+            "alarmsTitle": "${entityName}:Alarm"
+          },
+          "title": "",
+          "dropShadow": true,
+          "enableFullscreen": true,
+          "titleStyle": {
+            "fontSize": "16px",
+            "fontWeight": 400,
+            "padding": "5px 10px 5px 10px"
+          },
+          "useDashboardTimewindow": false,
+          "showLegend": false,
+          "alarmSource": {
+            "type": "entity",
+            "name": "alarms",
+            "entityAliasId": "096c2559-ccf9-6cc0-0373-1682f95270c7",
+            "dataKeys": [
+              {
+                "name": "createdTime",
+                "type": "alarm",
+                "label": "Created time",
+                "color": "#2196f3",
+                "settings": {},
+                "_hash": 0.8449138327711128
+              },
+              {
+                "name": "originator",
+                "type": "alarm",
+                "label": "Originator",
+                "color": "#4caf50",
+                "settings": {},
+                "_hash": 0.19531546633607055
+              },
+              {
+                "name": "type",
+                "type": "alarm",
+                "label": "Type",
+                "color": "#f44336",
+                "settings": {},
+                "_hash": 0.3661248348477837
+              },
+              {
+                "name": "severity",
+                "type": "alarm",
+                "label": "Severity",
+                "color": "#ffc107",
+                "settings": {},
+                "_hash": 0.37653089308521337
+              },
+              {
+                "name": "status",
+                "type": "alarm",
+                "label": "Status",
+                "color": "#607d8b",
+                "settings": {},
+                "_hash": 0.7804781170916075
+              }
+            ]
+          },
+          "alarmSearchStatus": "ACTIVE",
+          "alarmsPollingInterval": 1,
           "showTitleIcon": false,
           "titleIcon": "more_horiz",
           "iconColor": "rgba(0, 0, 0, 0.87)",
@@ -1288,7 +1582,969 @@
         },
         "row": 0,
         "col": 0,
-        "id": "07d2bb3d-59ff-5dcc-0456-ba2790817eb7"
+        "id": "517a28c7-51dc-27e2-61a2-b1f396c321fd"
+      },
+      "4a12c58c-f356-3cf3-2f20-9dcd90c525ae": {
+        "isSystemType": true,
+        "bundleAlias": "cards",
+        "typeAlias": "entities_table",
+        "type": "latest",
+        "title": "New widget",
+        "sizeX": 7.5,
+        "sizeY": 6.5,
+        "config": {
+          "timewindow": {
+            "realtime": {
+              "interval": 1000,
+              "timewindowMs": 86400000
+            },
+            "aggregation": {
+              "type": "NONE",
+              "limit": 200
+            }
+          },
+          "showTitle": true,
+          "backgroundColor": "#fefefe",
+          "color": "#0c0c0c",
+          "padding": "4px",
+          "settings": {
+            "enableSearch": true,
+            "displayPagination": true,
+            "defaultPageSize": 10,
+            "defaultSortOrder": "entityName",
+            "displayEntityName": true,
+            "displayEntityType": true,
+            "enableSelectColumnDisplay": true,
+            "entitiesTitle": "Patient 2"
+          },
+          "title": "New Entities table",
+          "dropShadow": true,
+          "enableFullscreen": true,
+          "titleStyle": {
+            "fontSize": "16px",
+            "fontWeight": 400,
+            "padding": "5px 10px 5px 10px"
+          },
+          "useDashboardTimewindow": false,
+          "showLegend": false,
+          "datasources": [
+            {
+              "type": "entity",
+              "name": null,
+              "entityAliasId": "9c69d218-8e4a-7137-240b-17cd75a90ec1",
+              "dataKeys": [
+                {
+                  "name": "blood_Pressure",
+                  "type": "timeseries",
+                  "label": "blood_Pressure",
+                  "color": "#2196f3",
+                  "settings": {
+                    "columnWidth": "0px",
+                    "useCellStyleFunction": false,
+                    "useCellContentFunction": false
+                  },
+                  "_hash": 0.9656685538837262,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": null,
+                  "postFuncBody": null
+                },
+                {
+                  "name": "blood_Sugar",
+                  "type": "timeseries",
+                  "label": "blood_Sugar",
+                  "color": "#4caf50",
+                  "settings": {
+                    "columnWidth": "0px",
+                    "useCellStyleFunction": false,
+                    "useCellContentFunction": false
+                  },
+                  "_hash": 0.12024034999524935,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": null,
+                  "postFuncBody": null
+                },
+                {
+                  "name": "Body_Temperature",
+                  "type": "timeseries",
+                  "label": "Body_Temperature",
+                  "color": "#ffc107",
+                  "settings": {
+                    "columnWidth": "0px",
+                    "useCellStyleFunction": false,
+                    "useCellContentFunction": false
+                  },
+                  "_hash": 0.8382096350212225,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": null,
+                  "postFuncBody": null
+                },
+                {
+                  "name": "Heart_Rate",
+                  "type": "timeseries",
+                  "label": "Heart_Rate",
+                  "color": "#ffc107",
+                  "settings": {
+                    "columnWidth": "0px",
+                    "useCellStyleFunction": false,
+                    "cellStyleFunction": "",
+                    "useCellContentFunction": false,
+                    "cellContentFunction": ""
+                  },
+                  "_hash": 0.10213946452196465
+                }
+              ]
+            }
+          ],
+          "actions": {
+            "rowClick": [
+              {
+                "name": "row_click",
+                "icon": "more_horiz",
+                "type": "custom",
+                "customFunction": "",
+                "id": "e33476d6-5315-0e1a-b42b-c7f6365b46f9"
+              }
+            ]
+          },
+          "showTitleIcon": false,
+          "iconColor": "rgba(255,0,0,0.87)",
+          "iconSize": "24px",
+          "titleTooltip": "",
+          "widgetStyle": {}
+        },
+        "row": 0,
+        "col": 0,
+        "id": "4a12c58c-f356-3cf3-2f20-9dcd90c525ae"
+      },
+      "1e3d8d9a-8a03-be78-3838-0583951b4810": {
+        "isSystemType": true,
+        "bundleAlias": "cards",
+        "typeAlias": "entities_table",
+        "type": "latest",
+        "title": "New widget",
+        "sizeX": 7.5,
+        "sizeY": 6.5,
+        "config": {
+          "timewindow": {
+            "realtime": {
+              "interval": 1000,
+              "timewindowMs": 86400000
+            },
+            "aggregation": {
+              "type": "NONE",
+              "limit": 200
+            }
+          },
+          "showTitle": true,
+          "backgroundColor": "#fefefe",
+          "color": "#0c0c0c",
+          "padding": "4px",
+          "settings": {
+            "enableSearch": true,
+            "displayPagination": true,
+            "defaultPageSize": 10,
+            "defaultSortOrder": "entityName",
+            "displayEntityName": true,
+            "displayEntityType": true,
+            "enableSelectColumnDisplay": true,
+            "entitiesTitle": "Patient 3"
+          },
+          "title": "New Entities table",
+          "dropShadow": true,
+          "enableFullscreen": true,
+          "titleStyle": {
+            "fontSize": "16px",
+            "fontWeight": 400,
+            "padding": "5px 10px 5px 10px"
+          },
+          "useDashboardTimewindow": false,
+          "showLegend": false,
+          "datasources": [
+            {
+              "type": "entity",
+              "name": null,
+              "entityAliasId": "3cd41551-6bc7-1ac3-dc4e-10804096aa59",
+              "dataKeys": [
+                {
+                  "name": "blood_Pressure",
+                  "type": "timeseries",
+                  "label": "blood_Pressure",
+                  "color": "#2196f3",
+                  "settings": {
+                    "columnWidth": "0px",
+                    "useCellStyleFunction": false,
+                    "useCellContentFunction": false
+                  },
+                  "_hash": 0.9656685538837262,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": null,
+                  "postFuncBody": null
+                },
+                {
+                  "name": "blood_Sugar",
+                  "type": "timeseries",
+                  "label": "blood_Sugar",
+                  "color": "#4caf50",
+                  "settings": {
+                    "columnWidth": "0px",
+                    "useCellStyleFunction": false,
+                    "useCellContentFunction": false
+                  },
+                  "_hash": 0.12024034999524935,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": null,
+                  "postFuncBody": null
+                },
+                {
+                  "name": "Body_Temperature",
+                  "type": "timeseries",
+                  "label": "Body_Temperature",
+                  "color": "#ffc107",
+                  "settings": {
+                    "columnWidth": "0px",
+                    "useCellStyleFunction": false,
+                    "useCellContentFunction": false
+                  },
+                  "_hash": 0.8382096350212225,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": null,
+                  "postFuncBody": null
+                },
+                {
+                  "name": "Heart_Rate",
+                  "type": "timeseries",
+                  "label": "Heart_Rate",
+                  "color": "#ffc107",
+                  "settings": {
+                    "columnWidth": "0px",
+                    "useCellStyleFunction": false,
+                    "cellStyleFunction": "",
+                    "useCellContentFunction": false,
+                    "cellContentFunction": ""
+                  },
+                  "_hash": 0.12560567190033667
+                }
+              ]
+            }
+          ],
+          "actions": {
+            "rowClick": [
+              {
+                "name": "row_click",
+                "icon": "more_horiz",
+                "type": "custom",
+                "customFunction": "",
+                "id": "e33476d6-5315-0e1a-b42b-c7f6365b46f9"
+              }
+            ]
+          },
+          "showTitleIcon": false,
+          "iconColor": "rgba(255,0,0,0.87)",
+          "iconSize": "24px",
+          "titleTooltip": "",
+          "widgetStyle": {}
+        },
+        "row": 0,
+        "col": 0,
+        "id": "1e3d8d9a-8a03-be78-3838-0583951b4810"
+      },
+      "9ac00638-ee5b-0b75-d864-d28ad2bce0f7": {
+        "isSystemType": true,
+        "bundleAlias": "charts",
+        "typeAlias": "basic_timeseries",
+        "type": "timeseries",
+        "title": "New widget",
+        "sizeX": 8,
+        "sizeY": 5,
+        "config": {
+          "datasources": [
+            {
+              "type": "entity",
+              "name": null,
+              "entityAliasId": "69abc899-7139-167c-cb66-a828f44fd1c3",
+              "dataKeys": [
+                {
+                  "name": "blood_Pressure",
+                  "type": "timeseries",
+                  "label": "blood_Pressure",
+                  "color": "#f321a8",
+                  "settings": {
+                    "excludeFromStacking": false,
+                    "hideDataByDefault": false,
+                    "disableDataHiding": false,
+                    "removeFromLegend": false,
+                    "showLines": true,
+                    "fillLines": false,
+                    "showPoints": false,
+                    "showPointShape": "circle",
+                    "pointShapeFormatter": "var size = radius * Math.sqrt(Math.PI) / 2;\nctx.moveTo(x - size, y - size);\nctx.lineTo(x + size, y + size);\nctx.moveTo(x - size, y + size);\nctx.lineTo(x + size, y - size);",
+                    "showPointsLineWidth": 5,
+                    "showPointsRadius": 3,
+                    "showSeparateAxis": false,
+                    "axisPosition": "left",
+                    "thresholds": [
+                      {
+                        "thresholdValueSource": "predefinedValue"
+                      }
+                    ],
+                    "comparisonSettings": {
+                      "showValuesForComparison": true
+                    }
+                  },
+                  "_hash": 0.26428349050218336,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": null,
+                  "postFuncBody": null
+                }
+              ]
+            }
+          ],
+          "timewindow": {
+            "hideInterval": false,
+            "hideAggregation": false,
+            "hideAggInterval": false,
+            "selectedTab": 0,
+            "realtime": {
+              "timewindowMs": 600000,
+              "interval": 1000
+            },
+            "aggregation": {
+              "type": "AVG",
+              "limit": 2500
+            }
+          },
+          "showTitle": true,
+          "backgroundColor": "#fff",
+          "color": "rgba(0, 0, 0, 0.87)",
+          "padding": "8px",
+          "settings": {
+            "shadowSize": 4,
+            "fontColor": "#545454",
+            "fontSize": 10,
+            "xaxis": {
+              "showLabels": true,
+              "color": "#545454"
+            },
+            "yaxis": {
+              "showLabels": true,
+              "color": "#545454"
+            },
+            "grid": {
+              "color": "#545454",
+              "tickColor": "#DDDDDD",
+              "verticalLines": true,
+              "horizontalLines": true,
+              "outlineWidth": 1
+            },
+            "stack": false,
+            "tooltipIndividual": false,
+            "timeForComparison": "months",
+            "xaxisSecond": {
+              "axisPosition": "top",
+              "showLabels": true
+            },
+            "smoothLines": true
+          },
+          "title": "Blood Pressure History",
+          "dropShadow": true,
+          "enableFullscreen": true,
+          "titleStyle": {
+            "fontSize": "16px",
+            "fontWeight": 400
+          },
+          "useDashboardTimewindow": false,
+          "displayTimewindow": true,
+          "showTitleIcon": false,
+          "iconColor": "rgba(0, 0, 0, 0.87)",
+          "iconSize": "24px",
+          "titleTooltip": "",
+          "widgetStyle": {},
+          "showLegend": true,
+          "legendConfig": {
+            "direction": "column",
+            "position": "bottom",
+            "showMin": true,
+            "showMax": true,
+            "showAvg": true,
+            "showTotal": false
+          }
+        },
+        "row": 0,
+        "col": 0,
+        "id": "9ac00638-ee5b-0b75-d864-d28ad2bce0f7"
+      },
+      "8172eefb-a357-a6a7-67d2-c758bf4d9515": {
+        "isSystemType": true,
+        "bundleAlias": "analogue_gauges",
+        "typeAlias": "radial_gauge_canvas_gauges",
+        "type": "latest",
+        "title": "New widget",
+        "sizeX": 6,
+        "sizeY": 5,
+        "config": {
+          "datasources": [
+            {
+              "type": "entity",
+              "name": null,
+              "entityAliasId": "69abc899-7139-167c-cb66-a828f44fd1c3",
+              "dataKeys": [
+                {
+                  "name": "blood_Pressure",
+                  "type": "timeseries",
+                  "label": "blood_Pressure",
+                  "color": "#2196f3",
+                  "settings": {},
+                  "_hash": 0.38505021878336176
+                }
+              ]
+            }
+          ],
+          "timewindow": {
+            "realtime": {
+              "timewindowMs": 60000
+            }
+          },
+          "showTitle": false,
+          "backgroundColor": "rgb(255, 255, 255)",
+          "color": "rgba(0, 0, 0, 0.87)",
+          "padding": "8px",
+          "settings": {
+            "maxValue": 200,
+            "startAngle": 45,
+            "ticksAngle": 270,
+            "showBorder": true,
+            "defaultColor": "#e65100",
+            "needleCircleSize": 10,
+            "highlights": [],
+            "showUnitTitle": true,
+            "colorPlate": "#fff",
+            "colorMajorTicks": "#444",
+            "colorMinorTicks": "#666",
+            "minorTicks": 10,
+            "valueInt": 3,
+            "highlightsWidth": 15,
+            "valueBox": true,
+            "animation": true,
+            "animationDuration": 500,
+            "animationRule": "cycle",
+            "colorNeedleShadowUp": "rgba(2, 255, 255, 0)",
+            "numbersFont": {
+              "family": "Roboto",
+              "size": 18,
+              "style": "normal",
+              "weight": "500",
+              "color": "#616161"
+            },
+            "titleFont": {
+              "family": "Roboto",
+              "size": 24,
+              "style": "normal",
+              "weight": "500",
+              "color": "#888"
+            },
+            "unitsFont": {
+              "family": "Roboto",
+              "size": 22,
+              "style": "normal",
+              "weight": "500",
+              "color": "#616161"
+            },
+            "valueFont": {
+              "family": "Segment7Standard",
+              "size": 36,
+              "style": "normal",
+              "weight": "normal",
+              "shadowColor": "rgba(0, 0, 0, 0.49)",
+              "color": "#444"
+            },
+            "minValue": 50,
+            "colorNeedleShadowDown": "rgba(188,143,143,0.45)",
+            "colorValueBoxRect": "#888",
+            "colorValueBoxRectEnd": "#666",
+            "colorValueBoxBackground": "#babab2",
+            "colorValueBoxShadow": "rgba(0,0,0,1)",
+            "unitTitle": "Blood Pressure"
+          },
+          "title": "New Radial gauge - Canvas Gauges",
+          "dropShadow": true,
+          "enableFullscreen": true,
+          "titleStyle": {
+            "fontSize": "16px",
+            "fontWeight": 400
+          }
+        },
+        "row": 0,
+        "col": 0,
+        "id": "8172eefb-a357-a6a7-67d2-c758bf4d9515"
+      },
+      "c3ca6267-3474-1448-fd68-ce8e091a0054": {
+        "isSystemType": true,
+        "bundleAlias": "alarm_widgets",
+        "typeAlias": "alarms_table",
+        "type": "alarm",
+        "title": "New widget",
+        "sizeX": 10.5,
+        "sizeY": 6.5,
+        "config": {
+          "timewindow": {
+            "realtime": {
+              "interval": 1000,
+              "timewindowMs": 86400000
+            },
+            "aggregation": {
+              "type": "NONE",
+              "limit": 200
+            }
+          },
+          "showTitle": true,
+          "backgroundColor": "#ffffff",
+          "color": "rgba(0,0,0,0.87)",
+          "padding": "4px",
+          "settings": {
+            "enableSelection": true,
+            "enableSearch": true,
+            "displayDetails": true,
+            "allowAcknowledgment": true,
+            "allowClear": true,
+            "displayPagination": false,
+            "defaultPageSize": 10,
+            "defaultSortOrder": "-createdTime",
+            "enableSelectColumnDisplay": true,
+            "enableStatusFilter": true,
+            "enableStickyAction": true,
+            "alarmsTitle": "${entityName}:Alarm"
+          },
+          "title": "",
+          "dropShadow": true,
+          "enableFullscreen": true,
+          "titleStyle": {
+            "fontSize": "16px",
+            "fontWeight": 400,
+            "padding": "5px 10px 5px 10px"
+          },
+          "useDashboardTimewindow": false,
+          "showLegend": false,
+          "alarmSource": {
+            "type": "entity",
+            "name": "alarms",
+            "entityAliasId": "94be6819-d064-0ce9-c18c-920f04e2c724",
+            "dataKeys": [
+              {
+                "name": "createdTime",
+                "type": "alarm",
+                "label": "Created time",
+                "color": "#2196f3",
+                "settings": {},
+                "_hash": 0.8449138327711128
+              },
+              {
+                "name": "originator",
+                "type": "alarm",
+                "label": "Originator",
+                "color": "#4caf50",
+                "settings": {},
+                "_hash": 0.19531546633607055
+              },
+              {
+                "name": "type",
+                "type": "alarm",
+                "label": "Type",
+                "color": "#f44336",
+                "settings": {},
+                "_hash": 0.3661248348477837
+              },
+              {
+                "name": "severity",
+                "type": "alarm",
+                "label": "Severity",
+                "color": "#ffc107",
+                "settings": {},
+                "_hash": 0.37653089308521337
+              },
+              {
+                "name": "status",
+                "type": "alarm",
+                "label": "Status",
+                "color": "#607d8b",
+                "settings": {},
+                "_hash": 0.7804781170916075
+              }
+            ]
+          },
+          "alarmSearchStatus": "ACTIVE",
+          "alarmsPollingInterval": 1,
+          "showTitleIcon": false,
+          "titleIcon": "more_horiz",
+          "iconColor": "rgba(0, 0, 0, 0.87)",
+          "iconSize": "24px",
+          "titleTooltip": "",
+          "widgetStyle": {},
+          "displayTimewindow": true,
+          "actions": {},
+          "datasources": [],
+          "alarmsMaxCountLoad": 1,
+          "alarmsFetchSize": 100
+        },
+        "row": 0,
+        "col": 0,
+        "id": "c3ca6267-3474-1448-fd68-ce8e091a0054"
+      },
+      "1020feda-14a0-ead8-75f7-a74a6ee55e04": {
+        "isSystemType": true,
+        "bundleAlias": "charts",
+        "typeAlias": "basic_timeseries",
+        "type": "timeseries",
+        "title": "New widget",
+        "sizeX": 8,
+        "sizeY": 5,
+        "config": {
+          "datasources": [
+            {
+              "type": "entity",
+              "name": null,
+              "entityAliasId": "14599104-92d8-e9b5-8e7c-ba2db52f3aa3",
+              "dataKeys": [
+                {
+                  "name": "blood_Pressure",
+                  "type": "timeseries",
+                  "label": "blood_Pressure",
+                  "color": "#f321a8",
+                  "settings": {
+                    "excludeFromStacking": false,
+                    "hideDataByDefault": false,
+                    "disableDataHiding": false,
+                    "removeFromLegend": false,
+                    "showLines": true,
+                    "fillLines": false,
+                    "showPoints": false,
+                    "showPointShape": "circle",
+                    "pointShapeFormatter": "var size = radius * Math.sqrt(Math.PI) / 2;\nctx.moveTo(x - size, y - size);\nctx.lineTo(x + size, y + size);\nctx.moveTo(x - size, y + size);\nctx.lineTo(x + size, y - size);",
+                    "showPointsLineWidth": 5,
+                    "showPointsRadius": 3,
+                    "showSeparateAxis": false,
+                    "axisPosition": "left",
+                    "thresholds": [
+                      {
+                        "thresholdValueSource": "predefinedValue"
+                      }
+                    ],
+                    "comparisonSettings": {
+                      "showValuesForComparison": true
+                    }
+                  },
+                  "_hash": 0.26428349050218336,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": null,
+                  "postFuncBody": null
+                }
+              ]
+            }
+          ],
+          "timewindow": {
+            "hideInterval": false,
+            "hideAggregation": false,
+            "hideAggInterval": false,
+            "selectedTab": 0,
+            "realtime": {
+              "timewindowMs": 600000,
+              "interval": 1000
+            },
+            "aggregation": {
+              "type": "AVG",
+              "limit": 2500
+            }
+          },
+          "showTitle": true,
+          "backgroundColor": "#fff",
+          "color": "rgba(0, 0, 0, 0.87)",
+          "padding": "8px",
+          "settings": {
+            "shadowSize": 4,
+            "fontColor": "#545454",
+            "fontSize": 10,
+            "xaxis": {
+              "showLabels": true,
+              "color": "#545454"
+            },
+            "yaxis": {
+              "showLabels": true,
+              "color": "#545454"
+            },
+            "grid": {
+              "color": "#545454",
+              "tickColor": "#DDDDDD",
+              "verticalLines": true,
+              "horizontalLines": true,
+              "outlineWidth": 1
+            },
+            "stack": false,
+            "tooltipIndividual": false,
+            "timeForComparison": "months",
+            "xaxisSecond": {
+              "axisPosition": "top",
+              "showLabels": true
+            },
+            "smoothLines": true
+          },
+          "title": "Blood Pressure History",
+          "dropShadow": true,
+          "enableFullscreen": true,
+          "titleStyle": {
+            "fontSize": "16px",
+            "fontWeight": 400
+          },
+          "useDashboardTimewindow": false,
+          "displayTimewindow": true,
+          "showTitleIcon": false,
+          "iconColor": "rgba(0, 0, 0, 0.87)",
+          "iconSize": "24px",
+          "titleTooltip": "",
+          "widgetStyle": {},
+          "showLegend": true,
+          "legendConfig": {
+            "direction": "column",
+            "position": "bottom",
+            "showMin": true,
+            "showMax": true,
+            "showAvg": true,
+            "showTotal": false
+          }
+        },
+        "row": 0,
+        "col": 0,
+        "id": "1020feda-14a0-ead8-75f7-a74a6ee55e04"
+      },
+      "4bef3672-a4db-4a91-4c78-3e6b27127e51": {
+        "isSystemType": true,
+        "bundleAlias": "analogue_gauges",
+        "typeAlias": "radial_gauge_canvas_gauges",
+        "type": "latest",
+        "title": "New widget",
+        "sizeX": 6,
+        "sizeY": 5,
+        "config": {
+          "datasources": [
+            {
+              "type": "entity",
+              "name": null,
+              "entityAliasId": "14599104-92d8-e9b5-8e7c-ba2db52f3aa3",
+              "dataKeys": [
+                {
+                  "name": "blood_Pressure",
+                  "type": "timeseries",
+                  "label": "blood_Pressure",
+                  "color": "#2196f3",
+                  "settings": {},
+                  "_hash": 0.38505021878336176
+                }
+              ]
+            }
+          ],
+          "timewindow": {
+            "realtime": {
+              "timewindowMs": 60000
+            }
+          },
+          "showTitle": false,
+          "backgroundColor": "rgb(255, 255, 255)",
+          "color": "rgba(0, 0, 0, 0.87)",
+          "padding": "8px",
+          "settings": {
+            "maxValue": 200,
+            "startAngle": 45,
+            "ticksAngle": 270,
+            "showBorder": true,
+            "defaultColor": "#e65100",
+            "needleCircleSize": 10,
+            "highlights": [],
+            "showUnitTitle": true,
+            "colorPlate": "#fff",
+            "colorMajorTicks": "#444",
+            "colorMinorTicks": "#666",
+            "minorTicks": 10,
+            "valueInt": 3,
+            "highlightsWidth": 15,
+            "valueBox": true,
+            "animation": true,
+            "animationDuration": 500,
+            "animationRule": "cycle",
+            "colorNeedleShadowUp": "rgba(2, 255, 255, 0)",
+            "numbersFont": {
+              "family": "Roboto",
+              "size": 18,
+              "style": "normal",
+              "weight": "500",
+              "color": "#616161"
+            },
+            "titleFont": {
+              "family": "Roboto",
+              "size": 24,
+              "style": "normal",
+              "weight": "500",
+              "color": "#888"
+            },
+            "unitsFont": {
+              "family": "Roboto",
+              "size": 22,
+              "style": "normal",
+              "weight": "500",
+              "color": "#616161"
+            },
+            "valueFont": {
+              "family": "Segment7Standard",
+              "size": 36,
+              "style": "normal",
+              "weight": "normal",
+              "shadowColor": "rgba(0, 0, 0, 0.49)",
+              "color": "#444"
+            },
+            "minValue": 50,
+            "colorNeedleShadowDown": "rgba(188,143,143,0.45)",
+            "colorValueBoxRect": "#888",
+            "colorValueBoxRectEnd": "#666",
+            "colorValueBoxBackground": "#babab2",
+            "colorValueBoxShadow": "rgba(0,0,0,1)",
+            "unitTitle": "Blood Pressure"
+          },
+          "title": "New Radial gauge - Canvas Gauges",
+          "dropShadow": true,
+          "enableFullscreen": true,
+          "titleStyle": {
+            "fontSize": "16px",
+            "fontWeight": 400
+          }
+        },
+        "row": 0,
+        "col": 0,
+        "id": "4bef3672-a4db-4a91-4c78-3e6b27127e51"
+      },
+      "91de4e2c-aaef-dc4e-5029-87e6acc81f53": {
+        "isSystemType": true,
+        "bundleAlias": "alarm_widgets",
+        "typeAlias": "alarms_table",
+        "type": "alarm",
+        "title": "New widget",
+        "sizeX": 10.5,
+        "sizeY": 6.5,
+        "config": {
+          "timewindow": {
+            "realtime": {
+              "interval": 1000,
+              "timewindowMs": 86400000
+            },
+            "aggregation": {
+              "type": "NONE",
+              "limit": 200
+            }
+          },
+          "showTitle": true,
+          "backgroundColor": "#ffffff",
+          "color": "rgba(0,0,0,0.87)",
+          "padding": "4px",
+          "settings": {
+            "enableSelection": true,
+            "enableSearch": true,
+            "displayDetails": true,
+            "allowAcknowledgment": true,
+            "allowClear": true,
+            "displayPagination": false,
+            "defaultPageSize": 10,
+            "defaultSortOrder": "-createdTime",
+            "enableSelectColumnDisplay": true,
+            "enableStatusFilter": true,
+            "enableStickyAction": true,
+            "alarmsTitle": "${entityName}:Alarm"
+          },
+          "title": "",
+          "dropShadow": true,
+          "enableFullscreen": true,
+          "titleStyle": {
+            "fontSize": "16px",
+            "fontWeight": 400,
+            "padding": "5px 10px 5px 10px"
+          },
+          "useDashboardTimewindow": false,
+          "showLegend": false,
+          "alarmSource": {
+            "type": "entity",
+            "name": "alarms",
+            "entityAliasId": "14599104-92d8-e9b5-8e7c-ba2db52f3aa3",
+            "dataKeys": [
+              {
+                "name": "createdTime",
+                "type": "alarm",
+                "label": "Created time",
+                "color": "#2196f3",
+                "settings": {},
+                "_hash": 0.8449138327711128
+              },
+              {
+                "name": "originator",
+                "type": "alarm",
+                "label": "Originator",
+                "color": "#4caf50",
+                "settings": {},
+                "_hash": 0.19531546633607055
+              },
+              {
+                "name": "type",
+                "type": "alarm",
+                "label": "Type",
+                "color": "#f44336",
+                "settings": {},
+                "_hash": 0.3661248348477837
+              },
+              {
+                "name": "severity",
+                "type": "alarm",
+                "label": "Severity",
+                "color": "#ffc107",
+                "settings": {},
+                "_hash": 0.37653089308521337
+              },
+              {
+                "name": "status",
+                "type": "alarm",
+                "label": "Status",
+                "color": "#607d8b",
+                "settings": {},
+                "_hash": 0.7804781170916075
+              }
+            ]
+          },
+          "alarmSearchStatus": "ACTIVE",
+          "alarmsPollingInterval": 1,
+          "showTitleIcon": false,
+          "titleIcon": "more_horiz",
+          "iconColor": "rgba(0, 0, 0, 0.87)",
+          "iconSize": "24px",
+          "titleTooltip": "",
+          "widgetStyle": {},
+          "displayTimewindow": true,
+          "actions": {},
+          "datasources": [],
+          "alarmsMaxCountLoad": 1,
+          "alarmsFetchSize": 100
+        },
+        "row": 0,
+        "col": 0,
+        "id": "91de4e2c-aaef-dc4e-5029-87e6acc81f53"
       }
     },
     "states": {
@@ -1302,6 +2558,18 @@
                 "sizeX": 22,
                 "sizeY": 7,
                 "row": 0,
+                "col": 1
+              },
+              "4a12c58c-f356-3cf3-2f20-9dcd90c525ae": {
+                "sizeX": 22,
+                "sizeY": 7,
+                "row": 7,
+                "col": 1
+              },
+              "1e3d8d9a-8a03-be78-3838-0583951b4810": {
+                "sizeX": 22,
+                "sizeY": 7,
+                "row": 14,
                 "col": 1
               }
             },
@@ -1374,12 +2642,6 @@
                 "row": 0,
                 "col": 0
               },
-              "2303c806-07fc-2ac7-a9f2-345d052a95f8": {
-                "sizeX": 6,
-                "sizeY": 5,
-                "row": 5,
-                "col": 18
-              },
               "62c02657-ed98-6863-da3c-f15438fce8d3": {
                 "sizeX": 18,
                 "sizeY": 5,
@@ -1415,12 +2677,6 @@
                 "row": 0,
                 "col": 0
               },
-              "7ddfeab4-a59c-b834-bf4f-a73ec9d78079": {
-                "sizeX": 6,
-                "sizeY": 6,
-                "row": 5,
-                "col": 19
-              },
               "07d2bb3d-59ff-5dcc-0456-ba2790817eb7": {
                 "sizeX": 19,
                 "sizeY": 6,
@@ -1437,12 +2693,213 @@
             }
           }
         }
+      },
+      "Temp_Details": {
+        "name": "${entityName}",
+        "root": false,
+        "layouts": {
+          "main": {
+            "widgets": {
+              "3a0e329f-9b30-2353-6561-84fcfe68c6c0": {
+                "sizeX": 19,
+                "sizeY": 5,
+                "row": 0,
+                "col": 0
+              },
+              "1ea6c6a0-3843-d718-67f7-a28064590a58": {
+                "sizeX": 6,
+                "sizeY": 5,
+                "row": 0,
+                "col": 19
+              },
+              "517a28c7-51dc-27e2-61a2-b1f396c321fd": {
+                "sizeX": 19,
+                "sizeY": 6,
+                "row": 5,
+                "col": 0
+              }
+            },
+            "gridSettings": {
+              "backgroundColor": "#eeeeee",
+              "color": "rgba(0,0,0,0.870588)",
+              "columns": 24,
+              "margin": 10,
+              "backgroundSizeMode": "100%"
+            }
+          }
+        }
+      },
+      "Sugar_Details_2": {
+        "name": "${entityName}",
+        "root": false,
+        "layouts": {
+          "main": {
+            "widgets": {},
+            "gridSettings": {
+              "backgroundColor": "#eeeeee",
+              "color": "rgba(0,0,0,0.870588)",
+              "columns": 24,
+              "margin": 10,
+              "backgroundSizeMode": "100%"
+            }
+          }
+        }
+      },
+      "Sugar_Details_3": {
+        "name": "${entityName}",
+        "root": false,
+        "layouts": {
+          "main": {
+            "widgets": {},
+            "gridSettings": {
+              "backgroundColor": "#eeeeee",
+              "color": "rgba(0,0,0,0.870588)",
+              "columns": 24,
+              "margin": 10,
+              "backgroundSizeMode": "100%"
+            }
+          }
+        }
+      },
+      "Heart_Details_2": {
+        "name": "${entityName}",
+        "root": false,
+        "layouts": {
+          "main": {
+            "widgets": {},
+            "gridSettings": {
+              "backgroundColor": "#eeeeee",
+              "color": "rgba(0,0,0,0.870588)",
+              "columns": 24,
+              "margin": 10,
+              "backgroundSizeMode": "100%"
+            }
+          }
+        }
+      },
+      "Heart_Details_3": {
+        "name": "${entityName}",
+        "root": false,
+        "layouts": {
+          "main": {
+            "widgets": {},
+            "gridSettings": {
+              "backgroundColor": "#eeeeee",
+              "color": "rgba(0,0,0,0.870588)",
+              "columns": 24,
+              "margin": 10,
+              "backgroundSizeMode": "100%"
+            }
+          }
+        }
+      },
+      "Pressure_Details_3": {
+        "name": "${entityName}",
+        "root": false,
+        "layouts": {
+          "main": {
+            "widgets": {
+              "1020feda-14a0-ead8-75f7-a74a6ee55e04": {
+                "sizeX": 19,
+                "sizeY": 5,
+                "row": 0,
+                "col": 0
+              },
+              "4bef3672-a4db-4a91-4c78-3e6b27127e51": {
+                "sizeX": 6,
+                "sizeY": 5,
+                "row": 0,
+                "col": 19
+              },
+              "91de4e2c-aaef-dc4e-5029-87e6acc81f53": {
+                "sizeX": 19,
+                "sizeY": 6,
+                "row": 5,
+                "col": 0
+              }
+            },
+            "gridSettings": {
+              "backgroundColor": "#eeeeee",
+              "color": "rgba(0,0,0,0.870588)",
+              "columns": 24,
+              "margin": 10,
+              "backgroundSizeMode": "100%"
+            }
+          }
+        }
+      },
+      "Pressure_Details_2": {
+        "name": "${entityName}",
+        "root": false,
+        "layouts": {
+          "main": {
+            "widgets": {
+              "9ac00638-ee5b-0b75-d864-d28ad2bce0f7": {
+                "sizeX": 19,
+                "sizeY": 5,
+                "row": 0,
+                "col": 0
+              },
+              "8172eefb-a357-a6a7-67d2-c758bf4d9515": {
+                "sizeX": 6,
+                "sizeY": 5,
+                "row": 0,
+                "col": 19
+              },
+              "c3ca6267-3474-1448-fd68-ce8e091a0054": {
+                "sizeX": 19,
+                "sizeY": 6,
+                "row": 5,
+                "col": 0
+              }
+            },
+            "gridSettings": {
+              "backgroundColor": "#eeeeee",
+              "color": "rgba(0,0,0,0.870588)",
+              "columns": 24,
+              "margin": 10,
+              "backgroundSizeMode": "100%"
+            }
+          }
+        }
+      },
+      "Temp_Details_3": {
+        "name": "${entityName}",
+        "root": false,
+        "layouts": {
+          "main": {
+            "widgets": {},
+            "gridSettings": {
+              "backgroundColor": "#eeeeee",
+              "color": "rgba(0,0,0,0.870588)",
+              "columns": 24,
+              "margin": 10,
+              "backgroundSizeMode": "100%"
+            }
+          }
+        }
+      },
+      "Temp_Details_2": {
+        "name": "${entityName}",
+        "root": false,
+        "layouts": {
+          "main": {
+            "widgets": {},
+            "gridSettings": {
+              "backgroundColor": "#eeeeee",
+              "color": "rgba(0,0,0,0.870588)",
+              "columns": 24,
+              "margin": 10,
+              "backgroundSizeMode": "100%"
+            }
+          }
+        }
       }
     },
     "entityAliases": {
       "d82b4a50-e20b-81a3-cae9-4d0570ea8398": {
         "id": "d82b4a50-e20b-81a3-cae9-4d0570ea8398",
-        "alias": "GP sensors",
+        "alias": "patient 1",
         "filter": {
           "type": "deviceSearchQuery",
           "resolveMultiple": true,
@@ -1451,7 +2908,7 @@
           "defaultStateEntity": null,
           "rootEntity": {
             "entityType": "ASSET",
-            "id": "7470e6e0-9ad1-11ea-ba29-93c92b718da1"
+            "id": "7bfbfd10-e00d-11ea-9052-4f1f17c3591d"
           },
           "direction": "FROM",
           "maxLevel": 1,
@@ -1485,6 +2942,140 @@
       "073a29ef-b8e6-deef-7d52-e692e13e62cc": {
         "id": "073a29ef-b8e6-deef-7d52-e692e13e62cc",
         "alias": "Current Heart Rate",
+        "filter": {
+          "type": "stateEntity",
+          "resolveMultiple": false,
+          "stateEntityParamName": null,
+          "defaultStateEntity": null
+        }
+      },
+      "096c2559-ccf9-6cc0-0373-1682f95270c7": {
+        "id": "096c2559-ccf9-6cc0-0373-1682f95270c7",
+        "alias": "Current Temperature",
+        "filter": {
+          "type": "stateEntity",
+          "resolveMultiple": false,
+          "stateEntityParamName": null,
+          "defaultStateEntity": null
+        }
+      },
+      "9c69d218-8e4a-7137-240b-17cd75a90ec1": {
+        "id": "9c69d218-8e4a-7137-240b-17cd75a90ec1",
+        "alias": "patient 2",
+        "filter": {
+          "type": "deviceSearchQuery",
+          "resolveMultiple": true,
+          "rootStateEntity": false,
+          "stateEntityParamName": null,
+          "defaultStateEntity": null,
+          "rootEntity": {
+            "entityType": "ASSET",
+            "id": "83b1fde0-e49d-11ea-aa71-f9e2bf4ab771"
+          },
+          "direction": "FROM",
+          "maxLevel": 1,
+          "fetchLastLevelOnly": false,
+          "relationType": "Contains",
+          "deviceTypes": [
+            "sensor"
+          ]
+        }
+      },
+      "3cd41551-6bc7-1ac3-dc4e-10804096aa59": {
+        "id": "3cd41551-6bc7-1ac3-dc4e-10804096aa59",
+        "alias": "patient 3",
+        "filter": {
+          "type": "deviceSearchQuery",
+          "resolveMultiple": true,
+          "rootStateEntity": false,
+          "stateEntityParamName": null,
+          "defaultStateEntity": null,
+          "rootEntity": {
+            "entityType": "ASSET",
+            "id": "a4b67200-e49d-11ea-aa71-f9e2bf4ab771"
+          },
+          "direction": "FROM",
+          "maxLevel": 1,
+          "fetchLastLevelOnly": false,
+          "relationType": "Contains",
+          "deviceTypes": [
+            "sensor"
+          ]
+        }
+      },
+      "69abc899-7139-167c-cb66-a828f44fd1c3": {
+        "id": "69abc899-7139-167c-cb66-a828f44fd1c3",
+        "alias": "Current Pressure_2",
+        "filter": {
+          "type": "stateEntity",
+          "resolveMultiple": false,
+          "stateEntityParamName": null,
+          "defaultStateEntity": null
+        }
+      },
+      "14599104-92d8-e9b5-8e7c-ba2db52f3aa3": {
+        "id": "14599104-92d8-e9b5-8e7c-ba2db52f3aa3",
+        "alias": "Current Pressure_3",
+        "filter": {
+          "type": "stateEntity",
+          "resolveMultiple": false,
+          "stateEntityParamName": null,
+          "defaultStateEntity": null
+        }
+      },
+      "a340533d-3e87-e29e-77c9-7dfd868901d9": {
+        "id": "a340533d-3e87-e29e-77c9-7dfd868901d9",
+        "alias": "Current Sugar_2",
+        "filter": {
+          "type": "stateEntity",
+          "resolveMultiple": false,
+          "stateEntityParamName": null,
+          "defaultStateEntity": null
+        }
+      },
+      "2cb37a93-0363-8598-080b-db4dd9e7eb7d": {
+        "id": "2cb37a93-0363-8598-080b-db4dd9e7eb7d",
+        "alias": "Current Sugar_3",
+        "filter": {
+          "type": "stateEntity",
+          "resolveMultiple": false,
+          "stateEntityParamName": null,
+          "defaultStateEntity": null
+        }
+      },
+      "6fab0ba7-4656-0677-d630-17b4c3f37608": {
+        "id": "6fab0ba7-4656-0677-d630-17b4c3f37608",
+        "alias": "Current Heart Rate_2",
+        "filter": {
+          "type": "stateEntity",
+          "resolveMultiple": false,
+          "stateEntityParamName": null,
+          "defaultStateEntity": null
+        }
+      },
+      "8896d32a-f506-0bc3-b14c-b650daea5497": {
+        "id": "8896d32a-f506-0bc3-b14c-b650daea5497",
+        "alias": "Current Heart Rate_3",
+        "filter": {
+          "type": "stateEntity",
+          "resolveMultiple": false,
+          "stateEntityParamName": null,
+          "defaultStateEntity": null
+        }
+      },
+      "f5c20b1c-2ba6-6304-b45a-bf6eba6f2521": {
+        "id": "f5c20b1c-2ba6-6304-b45a-bf6eba6f2521",
+        "alias": "Current Temperature_2",
+        "filter": {
+          "type": "stateEntity",
+          "resolveMultiple": false,
+          "stateEntityParamName": null,
+          "defaultStateEntity": null
+        }
+      },
+      "1bdbc813-a450-2075-2c32-a6735c34eb65": {
+        "id": "1bdbc813-a450-2075-2c32-a6735c34eb65",
+        "alias": "Current Temperature_3",
         "filter": {
           "type": "stateEntity",
           "resolveMultiple": false,
