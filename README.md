@@ -1,8 +1,8 @@
-#Wearable Remote Healthcare Monitoring System for Elderly People
+# Wearable Remote Healthcare Monitoring System for Elderly People
 
 This is a graduation project for Faculty Of **Engineering Ain-Shams Univeristy** in cairo in 2020.
 
-##Description
+## Description
 This project is about monitoring the medical condition of the patient in the
 treatment period and helping the doctors to examine the patient well.
 This can happen by providing monitoring system that can monitor the vital signals
@@ -18,14 +18,14 @@ the doctor to check the patient’s vital signals during the all day.
 With this system we hope to provide a better vision to the doctor during the
 patient’s treatment period in secure manner.
 
-##Source Paths
+## Source Paths
 **ESP source code** is in ESP32 Sources folder.
 **ThingsBoard Source code** is in ThingsBoard sources folder.
 **Android Application source code** is in Health Source folder.
 **Micropython source code** is in MicroPython IDE Source folder
 **Documentation and Analysis over the year** is in Documentaions and Analysis folder.
 
-##Setup
+## Setup
 1. Download the Android Application from ([here](https://github.com/AbanobMedhat/GP2020/blob/master/Health/release/app-release.apk)).
 2- Login with your Google Account.
 3- Select the user type (Pateint or Doctor)
