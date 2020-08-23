@@ -1,6 +1,6 @@
 # Wearable Remote Healthcare Monitoring System for Elderly People
 
-This is a graduation project for Faculty Of **Engineering Ain-Shams Univeristy** in cairo in 2020.
+This is a graduation project for **Faculty Of Engineering Ain-Shams Univeristy** in **Cairo** in 2020.
 
 ## Description
 This project is about monitoring the medical condition of the patient in the
